@@ -1,0 +1,19 @@
+name: Release
+options:
+  bundleIdPrefix: com.jatraMaya
+  settings:
+    iOS:
+      TARGETED_DEVICE_FAMILY: "1"  # 1 for iPhone, 2 for iPad
+targets:
+  Release:
+    type: application
+    platform: iOS
+    deploymentTarget: "16.4"
+    sources:
+      - Release
+    info:
+      path: App/Info.plist
+      properties:
+        UILaunchScreen: LaunchScreen
+        CFBundleShortVersionString: "1.0.0"
+        CFBundleVersion: "1"
