@@ -1,10 +1,7 @@
-<<<<<<< HEAD
 # Created by https://www.toptal.com/developers/gitignore/api/swift,xcode
 # Edit at https://www.toptal.com/developers/gitignore?templates=swift,xcode
 
 ### Swift ###
-=======
->>>>>>> 886f2c0693d527170f562dc5398651d269fa3750
 # Xcode
 #
 # gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
@@ -42,19 +39,11 @@ timeline.xctimeline
 playground.xcworkspace
 
 # Swift Package Manager
-<<<<<<< HEAD
-=======
-#
->>>>>>> 886f2c0693d527170f562dc5398651d269fa3750
 # Add this line if you want to avoid checking in source code from Swift Package Manager dependencies.
 # Packages/
 # Package.pins
 # Package.resolved
 # *.xcodeproj
-<<<<<<< HEAD
-=======
-#
->>>>>>> 886f2c0693d527170f562dc5398651d269fa3750
 # Xcode automatically generates this directory with a .xcworkspacedata file and xcuserdata
 # hence it is not needed unless you have added a package configuration file to your project
 # .swiftpm
@@ -62,28 +51,14 @@ playground.xcworkspace
 .build/
 
 # CocoaPods
-<<<<<<< HEAD
 # We recommend against adding the Pods directory to your .gitignore. However
 # you should judge for yourself, the pros and cons are mentioned at:
 # https://guides.cocoapods.org/using/using-cocoapods.html#should-i-check-the-pods-directory-into-source-control
 # Pods/
-=======
-#
-# We recommend against adding the Pods directory to your .gitignore. However
-# you should judge for yourself, the pros and cons are mentioned at:
-# https://guides.cocoapods.org/using/using-cocoapods.html#should-i-check-the-pods-directory-into-source-control
-#
-# Pods/
-#
->>>>>>> 886f2c0693d527170f562dc5398651d269fa3750
 # Add this line if you want to avoid checking in source code from the Xcode workspace
 # *.xcworkspace
 
 # Carthage
-<<<<<<< HEAD
-=======
-#
->>>>>>> 886f2c0693d527170f562dc5398651d269fa3750
 # Add this line if you want to avoid checking in source code from Carthage dependencies.
 # Carthage/Checkouts
 
@@ -94,10 +69,6 @@ Dependencies/
 .accio/
 
 # fastlane
-<<<<<<< HEAD
-=======
-#
->>>>>>> 886f2c0693d527170f562dc5398651d269fa3750
 # It is recommended to not store the screenshots in the git repo.
 # Instead, use fastlane to re-generate the screenshots whenever they are needed.
 # For more information about the recommended setup visit:
@@ -109,15 +80,10 @@ fastlane/screenshots/**/*.png
 fastlane/test_output
 
 # Code Injection
-<<<<<<< HEAD
-=======
-#
->>>>>>> 886f2c0693d527170f562dc5398651d269fa3750
 # After new code Injection tools there's a generated folder /iOSInjectionProject
 # https://github.com/johnno1962/injectionforxcode
 
 iOSInjectionProject/
-<<<<<<< HEAD
 
 ### Xcode ###
 
@@ -133,5 +99,3 @@ iOSInjectionProject/
 **/xcshareddata/WorkspaceSettings.xcsettings
 
 # End of https://www.toptal.com/developers/gitignore/api/swift,xcode
-=======
->>>>>>> 886f2c0693d527170f562dc5398651d269fa3750
