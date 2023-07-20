@@ -15,7 +15,7 @@ struct OnBoardingView3: View {
             VStack{
 //                Text("Skip")
 //                    .foregroundColor(Color.white)
-                Text("Be True to Yourself").font(.custom("Poppins-Black", size: 30)).fontWeight(.medium).foregroundColor(Color.white)
+                Text("Be True to Yourself").font(.custom("Poppins-Black", size: 30)).fontWeight(.medium).foregroundColor(Color.white).padding(.bottom)
                 Text("A safe place for you,").font(.custom("Poppins-Black", size: 18))
                     .foregroundColor(Color.white)
                 Text("Let you have a piece of mind.").font(.custom("Poppins-Black", size: 18))

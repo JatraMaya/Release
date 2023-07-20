@@ -15,8 +15,8 @@ struct OnBoardingView2: View {
             VStack{
 //                Text("Skip")
 //                    .foregroundColor(Color.white)
-                Text("Track Your Anger").font(.custom("Poppins-Black", size: 30)).fontWeight(.medium).foregroundColor(Color.white)
-                Text("Your ily journal, unlike no other").font(.custom("Poppins-Black", size: 18))
+                Text("Track Your Anger").font(.custom("Poppins-Black", size: 30)).fontWeight(.medium).foregroundColor(Color.white).padding(.bottom)
+                Text("Your daily journal, unlike no other").font(.custom("Poppins-Black", size: 18))
                     .foregroundColor(Color.white)
                 Text("No need to type anything, just talk.").font(.custom("Poppins-Black", size: 18))
                     .foregroundColor(Color.white)
