@@ -20,7 +20,7 @@ struct OnBoardingView3: View {
                     .foregroundColor(Color.white)
                 Text("Let you have a piece of mind.").font(.custom("Poppins-Black", size: 18))
                     .foregroundColor(Color.white)
-                Image("Joy").resizable().frame(width: 330, height: 330)
+                Image("Joy").resizable().frame(width: 330, height: 330).padding(.bottom, 72).padding(.top, 27)
                 Button{
                     withAnimation{
                         self.isOnboarding = true

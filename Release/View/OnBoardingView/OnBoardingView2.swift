@@ -20,7 +20,7 @@ struct OnBoardingView2: View {
                     .foregroundColor(Color.white)
                 Text("No need to type anything, just talk.").font(.custom("Poppins-Black", size: 18))
                     .foregroundColor(Color.white)
-                Image("Books").resizable().frame(width: 330, height: 330)
+                Image("Books").resizable().frame(width: 330, height: 330).padding(.bottom, 72).padding(.top, 27)
                 Button{
                     withAnimation {
                         value += 1
