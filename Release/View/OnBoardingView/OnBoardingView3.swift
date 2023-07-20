@@ -13,8 +13,12 @@ struct OnBoardingView3: View {
         ZStack{
             Color("Purple").ignoresSafeArea()
             VStack{
-//                Text("Skip")
-//                    .foregroundColor(Color.white)
+                Spacer()
+                NavigationLink(destination: DashboardView(), label: {
+                    Text("Skip")
+                        .foregroundColor(Color.white)
+                }).padding(.leading, 310)
+                Spacer()                
                 Text("Be True to Yourself").font(.custom("Poppins-Black", size: 30)).fontWeight(.medium).foregroundColor(Color.white).padding(.bottom)
                 Text("A safe place for you,").font(.custom("Poppins-Black", size: 18))
                     .foregroundColor(Color.white)
@@ -29,6 +33,7 @@ struct OnBoardingView3: View {
                 }label: {
                     Text("Get Started").frame(width: 140, height: 55).background(.white).foregroundColor(Color("Primary")).cornerRadius(radius: 30, corners: .allCorners)
                 }
+                Spacer()
             }
         }
     }
