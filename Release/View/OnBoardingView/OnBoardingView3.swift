@@ -11,7 +11,7 @@ struct OnBoardingView3: View {
     @AppStorage("isOnboarding") var isOnboarding: Bool = false
     var body: some View {
         ZStack{
-            Color("Primary").ignoresSafeArea()
+            Color("Purple").ignoresSafeArea()
             VStack{
 //                Text("Skip")
 //                    .foregroundColor(Color.white)

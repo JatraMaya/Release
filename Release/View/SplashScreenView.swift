@@ -10,7 +10,7 @@ import SwiftUI
 struct SplashScreenView: View {
     var body: some View {
         ZStack{
-            Color("LightPurple").ignoresSafeArea()
+            Color("Primary").ignoresSafeArea()
             Image("SplashShape").resizable().padding(.top, 350).ignoresSafeArea()
             VStack{
                 Spacer()

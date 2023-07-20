@@ -11,7 +11,7 @@ struct OnBoardingView1: View {
     @Binding var value: Int
     var body: some View {
         ZStack{
-            Color("Primary").ignoresSafeArea()
+            Color("Purple").ignoresSafeArea()
             VStack{
 //                Text("Skip")
 //                    .foregroundColor(Color.white)

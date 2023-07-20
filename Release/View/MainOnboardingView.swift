@@ -12,7 +12,7 @@ struct MainOnboardingView: View {
     @AppStorage("isOnboarding") var isOnboarding: Bool = false
     var body: some View {
         ZStack{
-            Color("Primary")
+            Color("Purple")
             TabView(selection: $tabViewIndex){
                 OnBoardingView1(value: $tabViewIndex).tag(0)
                 OnBoardingView2(value: $tabViewIndex).tag(1)

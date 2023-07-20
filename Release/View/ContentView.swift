@@ -15,8 +15,10 @@ struct ContentView : View {
     var body: some View {
         ZStack{
             if isSplashNotActive{
+
                 if isOnboarding{
                     ARViewContainer().edgesIgnoringSafeArea(.all)
+
                 }else {
                     MainOnboardingView()
                 }
@@ -24,6 +26,7 @@ struct ContentView : View {
             }else {
                 SplashScreenView()
             }
+
         }.onAppear{
             DispatchQueue.main.asyncAfter(deadline: .now() + 2.5){
                 withAnimation{
