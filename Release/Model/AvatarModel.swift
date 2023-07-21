@@ -10,4 +10,5 @@ import Foundation
 struct Avatar: Hashable{
     var id: Int
     var name: String
+    var isSelected: Bool = false
 }
