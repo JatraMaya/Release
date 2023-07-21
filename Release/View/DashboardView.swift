@@ -21,22 +21,22 @@ struct DashboardView: View {
                             Circle().frame(width: 65, height: 65)
                             Image(avatarImage).resizable().frame(width: 60, height: 60)
                         }
-                        Text("Hi,").font(.custom("Poppins-Black", size: 20)).fontWeight(.medium)
-                        Text(username.capitalized).fontWeight(.bold)
+                        Text("Hi,").font(.custom("Poppins-Medium", size: 20))
+                        Text(username.capitalized).font(.custom("Poppins-bold", size: 20))
                     }
                     NavigationLink{}label: {
                         Image("Calender-icon").resizable().frame(width: 20, height: 20)
                     }
                 }.padding(.top, 10)
                 Spacer()
-                Text("How are you feeling today?").font(.custom("Poppins-Black", size: 28)).fontWeight(.semibold).frame(width: 250).multilineTextAlignment(.center)
+                Text("How are you feeling today?").font(.custom("Poppins-SemiBold", size: 28)).frame(width: 250).multilineTextAlignment(.center)
 Spacer()
                 NavigationLink{
                     PrepareToTalkView()
                 }label: {
                     ZStack{
                         Circle().frame(width: 200).foregroundColor(Color("Primary"))
-                        Text(emotions[emotionsIndex]).font(.custom("Poppins-Black", size: 28)).fontWeight(.medium).foregroundColor(.white)
+                        Text(emotions[emotionsIndex]).font(.custom("Poppins-Medium", size: 28)).foregroundColor(.white)
                     }.shadow(radius: 5, x: 0, y: 5)
                 }
                 Spacer()

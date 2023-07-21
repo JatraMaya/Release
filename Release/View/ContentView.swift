@@ -13,11 +13,13 @@ struct ContentView : View {
     @State var isSplashNotActive: Bool = false
 
     var body: some View {
+        NavigationStack{
         ZStack{
             if isSplashNotActive{
 
                 if isOnboarding{
-                    ARViewContainer().edgesIgnoringSafeArea(.all)
+                    DashboardView()
+//                    ARViewContainer().edgesIgnoringSafeArea(.all)
 
                 }else {
                     MainOnboardingView()
@@ -33,7 +35,7 @@ struct ContentView : View {
                     self.isSplashNotActive = true
                 }
             }
-            }
+        }}.accentColor(.black)
     }
 }
 

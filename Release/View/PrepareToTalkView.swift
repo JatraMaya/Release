@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct PrepareToTalkVIew: View {
+struct PrepareToTalkView: View {
     var body: some View {
         VStack{
             Text("Hi, I am Mora!").font(.custom("Poppins-Black", size: 20)).fontWeight(.semibold)
@@ -23,8 +23,8 @@ struct PrepareToTalkVIew: View {
     }
 }
 
-struct AngerJourneyView_Previews: PreviewProvider {
+struct PrepareToTalkView_Previews: PreviewProvider {
     static var previews: some View {
-        PrepareToTalkVIew()
+        PrepareToTalkView()
     }
 }
