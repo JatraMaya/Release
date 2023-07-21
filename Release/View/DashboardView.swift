@@ -9,10 +9,10 @@ import SwiftUI
 
 struct DashboardView: View {
     let emotions: [String] = ["Angry", "Sad", "Furious", "Dissapointed"]
-    @AppStorage("isOnboarding") var isOnboarding: Bool = false
     @AppStorage("avatar") var avatarImage: String = "a"
+    @AppStorage("username") var username: String = ""
+
     @State var emotionsIndex: Int = 0
-    var username: String = "edi"
     var body: some View {
             VStack{
                 HStack(spacing: 200){
@@ -31,18 +31,18 @@ struct DashboardView: View {
                 Spacer()
                 Text("How are you feeling today?").font(.custom("Poppins-Black", size: 28)).fontWeight(.semibold).frame(width: 250).multilineTextAlignment(.center)
 Spacer()
-                Button{}label: {
+                NavigationLink{
+                    PrepareToTalkView()
+                }label: {
                     ZStack{
                         Circle().frame(width: 200).foregroundColor(Color("Primary"))
                         Text(emotions[emotionsIndex]).font(.custom("Poppins-Black", size: 28)).fontWeight(.medium).foregroundColor(.white)
-                    }
+                    }.shadow(radius: 5, x: 0, y: 5)
                 }
                 Spacer()
                 Spacer()
             }
             .onAppear{
-
-                isOnboarding = true
                 // Activate timet to run generateNum function every second
                 Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { _ in
                     withAnimation{
