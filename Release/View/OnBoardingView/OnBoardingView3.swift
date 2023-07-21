@@ -14,10 +14,7 @@ struct OnBoardingView3: View {
             Color("Purple").ignoresSafeArea()
             VStack{
                 Spacer()
-                NavigationLink(destination: DashboardView(), label: {
-                    Text("Skip")
-                        .foregroundColor(Color.white)
-                }).padding(.leading, 310)
+
                 Spacer()                
                 Text("Be True to Yourself").font(.custom("Poppins-Black", size: 30)).fontWeight(.medium).foregroundColor(Color.white).padding(.bottom)
                 Text("A safe place for you,").font(.custom("Poppins-Black", size: 18))
@@ -25,14 +22,9 @@ struct OnBoardingView3: View {
                 Text("Let you have a piece of mind.").font(.custom("Poppins-Black", size: 18))
                     .foregroundColor(Color.white)
                 Image("Joy").resizable().frame(width: 330, height: 330).padding(.bottom, 72).padding(.top, 27)
-                Button{
-                    withAnimation{
-                        self.isOnboarding = true
-                    }
-
-                }label: {
-                    Text("Get Started").frame(width: 140, height: 55).background(.white).foregroundColor(Color("Primary")).cornerRadius(radius: 30, corners: .allCorners)
-                }
+                NavigationLink(destination: DashboardView(), label: {
+                    Text("Get Started").frame(width: 140, height: 55).background(.white).foregroundColor(Color("Primary")).cornerRadius(radius: 30, corners: .allCorners).shadow(color: .black, radius:3, x: 0, y: 3)
+                })
                 Spacer()
             }
         }

@@ -14,7 +14,7 @@ struct OnBoardingView1: View {
             Color("Purple").ignoresSafeArea()
             VStack{
                 Spacer()
-                NavigationLink(destination: DashboardView(), label: {
+                NavigationLink(destination: MyProfileVIew(), label: {
                     Text("Skip")
                         .foregroundColor(Color.white)
                 }).padding(.leading, 310)
@@ -31,7 +31,7 @@ struct OnBoardingView1: View {
                     }
 
                 }label: {
-                    Text("Next").frame(width: 140, height: 55).background(.white).foregroundColor(Color("Primary")).cornerRadius(radius: 30, corners: .allCorners)
+                    Text("Next").frame(width: 140, height: 55).background(.white).foregroundColor(Color("Primary")).cornerRadius(radius: 30, corners: .allCorners).shadow(color: .black, radius:3, x: 0, y: 3)
                 }
                 Spacer()
             }
