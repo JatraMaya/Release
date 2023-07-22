@@ -8,36 +8,29 @@
 import SwiftUI
 
 struct MyProfileVIew: View {
-    let avatarLists: [Avatar] = [Avatar(id: 0, name: "a"),
-                                 Avatar(id: 1, name: "b"),
-                                 Avatar(id: 2, name: "c"),
-                                 Avatar(id: 3, name: "d"),
-                                 Avatar(id: 4, name: "e"),
-                                 Avatar(id: 5, name: "f")]
-    @AppStorage("avatarIndex") var avatarIndex: Int = 0
+    let avatarLists: [Avatar] = [Avatar(id: 1, name: "a"),
+                                Avatar(id: 2, name: "b"),
+                                Avatar(id: 3, name: "c"),
+                                Avatar(id: 4, name: "d"),
+                                Avatar(id: 5, name: "e"),
+                                Avatar(id: 6, name: "f")]
+    
+    @AppStorage("avatar") var avatarImage: String = "a"
     @AppStorage("username") var username: String = ""
-    @AppStorage("isOnboarding") var isOnboarding: Bool = false
 
     var body: some View {
         VStack{
             Text("My Profile").font(.custom("Poppins-SemiBold", size: 17)).padding(.top, 15)
             Spacer()
-            Image(avatarLists[avatarIndex].name).resizable().frame(width: 200, height: 200)
+            Image(avatarImage).resizable().frame(width: 200, height: 200)
             Text("Choose Avatar:").frame(width: 300, alignment: .leading).font(.custom("Poppins-SemiBold", size: 17))
             ScrollView(.horizontal, showsIndicators: false){
                 HStack{
                     ForEach(avatarLists, id: \.id){ avatar in
-
                         Button{
-                            avatarIndex = avatar.id
-//                            avatar.isSelectedToggle()
+                            avatarImage = avatar.name
                         }label: {
-                            ZStack{
-                                //                                if avatar.isSelected{
-                                //                                    Circle().fill(Color("Primary")).frame(width: 75, height: 75)
-                                //                                }
-                                Image(avatar.name).resizable().frame(width: 70, height: 70)
-                            }
+                            SelectedAvatarView(avatar: avatar.name, isSelected: avatar.name == avatarImage ? true : false )
                         }
                     }
                                     }
@@ -47,14 +40,13 @@ struct MyProfileVIew: View {
                     .font(.custom("Poppins-Medium", size: 16))
                     .textFieldStyle(TextFieldCustomStyle())
                     .frame(width: 320, height: 48)
-                Button{
-                    isOnboarding = true
-                }label: {
+            NavigationLink(destination: DashboardView() ,label: {
                     Text("Save").font(.custom("Poppins-Medium", size: 17))
                         .frame(width:320, height: 48)
                         .foregroundColor(.white).background(Color("Primary"))
                         .cornerRadius(radius: 20, corners: .allCorners).shadow(radius:3, x: 0, y: 5)
-                }
+                }).disabled(username.isEmpty)
+                .opacity(!username.isEmpty ? 1 : 0.6)
                 Spacer()
             }
     }
