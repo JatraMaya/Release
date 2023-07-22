@@ -33,27 +33,30 @@ struct MyProfileVIew: View {
 //                            avatar.isSelectedToggle()
                         }label: {
                             ZStack{
-                                if avatar.isSelected{
-                                    Circle().fill(Color("Primary")).frame(width: 75, height: 75)
-                                }
+                                //                                if avatar.isSelected{
+                                //                                    Circle().fill(Color("Primary")).frame(width: 75, height: 75)
+                                //                                }
                                 Image(avatar.name).resizable().frame(width: 70, height: 70)
                             }
                         }
                     }
-                }
-            }.frame(width: 330)
+                                    }
+                }.frame(width: 330)
                 Text("Write your name:").frame(width: 300, alignment: .leading).font(.custom("Poppins-SemiBold", size: 17)).fontWeight(.semibold)
-            TextField("", text: $username).border(Color("Primary"), width: 2).frame(width: 322, height: 48)
-            Button{
-                isOnboarding = true
-            }label: {
-                Text("Save").font(.custom("Poppins-Medium", size: 17))
-                    .frame(width:105, height: 48)
-                    .foregroundColor(.white).background(Color("Primary"))
-                    .cornerRadius(radius: 20, corners: .allCorners).shadow(radius:3, x: 0, y: 5)
+                TextField("", text: $username)
+                    .font(.custom("Poppins-Medium", size: 16))
+                    .textFieldStyle(TextFieldCustomStyle())
+                    .frame(width: 320, height: 48)
+                Button{
+                    isOnboarding = true
+                }label: {
+                    Text("Save").font(.custom("Poppins-Medium", size: 17))
+                        .frame(width:320, height: 48)
+                        .foregroundColor(.white).background(Color("Primary"))
+                        .cornerRadius(radius: 20, corners: .allCorners).shadow(radius:3, x: 0, y: 5)
+                }
+                Spacer()
             }
-            Spacer()
-        }
     }
 }
 
