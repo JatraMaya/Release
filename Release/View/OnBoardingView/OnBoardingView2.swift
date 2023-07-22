@@ -32,7 +32,7 @@ struct OnBoardingView2: View {
 
                 }label: {
                     Text("Next").font(.custom("Poppins-Medium", size: 17))
-                        .frame(width: 140, height: 55).background(.white).foregroundColor(Color("Primary")).cornerRadius(radius: 30, corners: .allCorners).shadow(color: .black, radius:3, x: 0, y: 3)
+                        .frame(width: 320, height: 55).background(.white).foregroundColor(Color("Primary")).cornerRadius(radius: 30, corners: .allCorners).shadow(color: .black, radius:3, x: 0, y: 3)
                 }
                 Spacer()
             }

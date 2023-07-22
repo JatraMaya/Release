@@ -24,7 +24,7 @@ struct OnBoardingView3: View {
                 Image("Joy").resizable().frame(width: 330, height: 330).padding(.bottom, 72).padding(.top, 27)
                 NavigationLink(destination: DashboardView(), label: {
                     Text("Get Started").font(.custom("Poppins-Medium", size: 17))
-                        .frame(width: 140, height: 55).background(.white).foregroundColor(Color("Primary")).cornerRadius(radius: 30, corners: .allCorners).shadow(color: .black, radius:3, x: 0, y: 3)
+                        .frame(width: 320, height: 55).background(.white).foregroundColor(Color("Primary")).cornerRadius(radius: 30, corners: .allCorners).shadow(color: .black, radius:3, x: 0, y: 3)
                 })
                 Spacer()
             }

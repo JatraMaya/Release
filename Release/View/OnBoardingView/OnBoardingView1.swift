@@ -31,7 +31,7 @@ struct OnBoardingView1: View {
                     }
 
                 }label: {
-                    Text("Next").frame(width: 140, height: 55).font(.custom("Poppins-Medium", size: 17))
+                    Text("Next").frame(width: 320, height: 55).font(.custom("Poppins-Medium", size: 17))
                         .background(.white)
                         .foregroundColor(Color("Primary"))
                         .cornerRadius(radius: 30, corners: .allCorners)
