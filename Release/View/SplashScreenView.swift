@@ -22,7 +22,7 @@ struct SplashScreenView: View {
                     .font(.custom("Poppins-semiBold", size: 28))
                     .foregroundColor(Color.white)
                     .padding(.bottom, 10)
-                Text("Vent it Out. Express more.").font(.custom("Poppins", size: 18)).foregroundColor(Color.white).padding(.top, 43)
+                Text("Vent it Out. Express more.").font(.custom("Poppins", size: 18)).foregroundColor(Color.white).padding(.top, 30)
                 Spacer()
                 Spacer()
             }
