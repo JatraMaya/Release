@@ -8,10 +8,13 @@
 import SwiftUI
 
 struct DashboardView: View {
-    let emotions: [String] = ["Angry", "Sad", "Furious", "Dissapointed"]
-    @State private var tabViewIndex = 0
+    let subtitles: [String] = ["How are you feeling today,", "You know, it’s okay to not feeling okay. You can tell me whatever you want. I am all ears👂🏻", "Don’t afraid. I won’t judge! I am here for you So, let’s vent it out, shall we?"]
+    @State var tabViewIndex = 0
     @AppStorage("avatar") var avatarImage: String = "a"
     @AppStorage("username") var username: String = "Samsul"
+    @AppStorage("isOnboarding") var isOnboarding: Bool = false
+
+    @State var time: Timer?
 
     @State var emotionsIndex: Int = 0
     var body: some View {
@@ -19,68 +22,99 @@ struct DashboardView: View {
             HStack{
                 HStack{
                     ZStack{
-                        Circle().frame(width: 65, height: 65)
+                        Circle()
+                            .frame(width: 65, height: 65)
                         Image(avatarImage).resizable().frame(width: 60, height: 60)
                     }.padding(.leading, 20)
                     Text(username.capitalized).font(.custom("Poppins-bold", size: 20)).padding(.leading, 10)
                 }
                 Spacer()
-                NavigationLink{}label: {
+                NavigationLink{
+                    AngerJourneyView()
+                }label: {
                     Image("Calender-icon").resizable().frame(width: 20, height: 20)
                 }.frame(alignment: .trailing).padding(.trailing, 20)
-            }.padding(.top, 10)
-            TabView(selection: $tabViewIndex){
-                HomeView1(username: username).tag(0)
-                HomeView2().tag(1)
-                HomeView3().tag(2)
-            }.tabViewStyle(PageTabViewStyle())
-            NavigationLink{}label: {
-                Text("Start Talk")
+            }.frame(height: 90)
+
+            if tabViewIndex == 0 {
+                VStack{
+                    Text("Hi, I am Mora!")
+                        .font(.custom("Poppins-SemiBold", size: 20))
+                        .padding(.bottom, 10)
+                    HStack{
+                        Text("How are you feeling today,")
+                            .font(.custom("Poppins-Medium", size: 18))
+                        Text(username)
+                            .font(.custom("Poppins-Medium", size: 18))
+                            .foregroundColor(Color("Primary"))
+                        Text("?")
+                        .font(.custom("Poppins-Medium", size: 18))                    }
+
+                }.frame(height: 90)
+                    .padding([.top, .bottom], 50)
+            } else if tabViewIndex == 1 {
+                VStack{
+                    Text("You know, it’s okay to not feeling okay.")
+                        .font(.custom("Poppins-Medium", size: 18))
+                    Text("You can tell me whatever you want.")
+                        .font(.custom("Poppins-Medium", size: 18))
+                    Text("I am all ears👂🏻")
+                        .font(.custom("Poppins-Medium", size: 18))
+                }.frame(height: 90)
+                    .padding([.top, .bottom], 50)
+
+            } else {
+                VStack{
+                    Text("Don’t afraid.")
+                        .font(.custom("Poppins-Medium", size: 18))
+                    Text("I won’t judge! I am here for you")
+                        .font(.custom("Poppins-Medium", size: 18))
+                    Text("So, let’s vent it out, shall we?")
+                        .font(.custom("Poppins-Medium", size: 18))
+
+                }.frame(height: 90)
+                    .padding([.top, .bottom], 50)
+
+            }
+
+
+                Image("doggo").resizable().frame(width: 187, height: 240)
+            NavigationLink{
+                ARViewContainer()
+            }label: {
+                Text("Continue")
                     .font(.custom("Poppins-Medium", size: 17))
                     .frame(width:320, height: 48)
                     .foregroundColor(.white)
                     .background(Color("Primary"))
                     .cornerRadius(radius: 20, corners: .allCorners).shadow(radius:3, x: 0, y: 5)
-                    .padding(.bottom, 100)
             }
+            .padding(.top, 50)
                 Spacer()
         }
         .onAppear{
-            setupAppearanceTabViewIndicator()
+            // Set isOnboarding value
+            isOnboarding = true
+
             // Automatically change display on dashboardView
-            Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { _ in
+            time = Timer.scheduledTimer(withTimeInterval: 2, repeats: true, block: { _ in
                 withAnimation(.easeInOut){
-                    automateTabView()
-                }
-
-                })
-
+                    rotateSubtitle()
+                }})
         }.onDisappear{
-                    // Turn of the timer when view disappear
-                    Timer.cancelPreviousPerformRequests(withTarget: automateTabView())
-        }.navigationBarBackButtonHidden()
-}
+
+            // Turn of the timer when view disappear
+            time?.invalidate()
+        }.navigationBarBackButtonHidden()}
 
     // Automate TabView  on Dashboard
-    func automateTabView(){
+    func rotateSubtitle(){
 
         if tabViewIndex == 3{
             tabViewIndex = 0
         } else {
             tabViewIndex += 1
         }
-//        tabViewIndex = Int.random(in: 0..<emotions.count)
-    }
-
-    // Setup tab view indicator color
-    func setupAppearanceTabViewIndicator() {
-        UIPageControl.appearance().currentPageIndicatorTintColor = UIColor(named: "Primary")
-        UIPageControl.appearance().pageIndicatorTintColor = UIColor.black.withAlphaComponent(0.2)
-    }
-
-    // Refert back to default tab view indicator when leaving the view
-    func refertAppearanceTabViewIndicator() {
-        
     }
 }
 
