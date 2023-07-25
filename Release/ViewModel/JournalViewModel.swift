@@ -23,7 +23,7 @@ struct JournalViewModel: View {
                 Spacer()
                 HStack{
                     Group{
-                        Text("\(date.formatted(.dateTime.weekday(.wide))),")
+                        Text("\(date.formatted(.dateTime.weekday(.abbreviated))),")
                         Text(date.formatted(.dateTime.day().month().year().locale(Locale(identifier: "id_ID"))))
                     }
                 }
