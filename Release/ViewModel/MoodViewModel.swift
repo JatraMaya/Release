@@ -8,13 +8,27 @@
 import SwiftUI
 
 struct MoodViewModel: View {
+    var mood: MoodModel = MoodModel(image: "😒", text: "Annoyed", color: "Green")
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        HStack{
+            Text(mood.image)
+                .frame(width: 115, alignment: .center)
+            Text(mood.text.capitalized)
+                .frame(width: 145, alignment: .leading)
+        }
+        .frame(width: 300, height: 63)
+        .overlay(
+            RoundedRectangle(cornerRadius: 25)
+                .stroke(Color(mood.color))
+                .shadow(radius: 3, x: 0, y: 5)
+
+        )
+//        .background(.black)
     }
 }
 
 struct MoodView_Previews: PreviewProvider {
     static var previews: some View {
-        MoodViewModel()
+        MoodViewModel(mood: MoodModel(image: "😒", text: "annoyed", color: "Green"))
     }
 }
