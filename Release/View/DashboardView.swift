@@ -48,7 +48,7 @@ struct DashboardView: View {
                     .highPriorityGesture(DragGesture())
             }.tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
                 .frame(height: 150)
-            Image("doggo").resizable().frame(width: 187, height: 240)
+            Image("doggo").resizable().frame(width: 250, height: 250)
             Spacer()
             NavigationLink{
                 StartingMoodView()
