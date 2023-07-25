@@ -6,3 +6,10 @@
 //
 
 import Foundation
+
+struct JournalModel: Hashable{
+    var moodBefore: String
+    var moodAfter: String
+    var content: String
+    var date: Date
+}
