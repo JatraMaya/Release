@@ -11,7 +11,7 @@ struct ListTypeView: View {
 //    var journal: [JournalModel] = []
     var journal: [JournalModel] = [
         JournalModel(moodBefore: "😠", moodAfter: "🤬", content: "hahahahaha, masalah lorem ipsum dolret sit amet, somedipa, semotthing, is in the way and I don't know what I'm trying to ", date: Date()),
-        JournalModel(moodBefore: "😔", moodAfter: "😡", content: "hahahahahax", date: Date()), JournalModel(moodBefore: "a", moodAfter: "b", content: "hahahahaha", date: Date()),
+        JournalModel(moodBefore: "😔", moodAfter: "😡", content: "hahahahahax", date: Date()), JournalModel(moodBefore: "😍", moodAfter: "🙂", content: "hahahahaha", date: Date()),
         JournalModel(moodBefore: "🤬", moodAfter: "😡", content: "hahahahaha, masalah lorem ipsum dolret sit amet, somedipais in the way and I don't know what I'm trying to ", date: Date()),
         JournalModel(moodBefore: "😒", moodAfter: "😔", content: "hahahahaha, masalah lorem ipsum dolret sit amet, somedipa, semotthing, is in the way and I don't know what I'm trying to ", date: Date())]
     var body: some View {
@@ -21,13 +21,11 @@ struct ListTypeView: View {
                     Text("Empty")
                 }else {
                     ForEach(Array(journal.enumerated()), id: \.element) { i, j in
-
                         JournalViewModel(moodBefore: j.moodBefore, moodAfter: j.moodAfter, content: j.content, index: i, date: j.date)
-
+                            .padding(.trailing, 10)
                     }
                 }
-
-            }
+            }.scrollIndicators(.hidden)
         }
     }
 }
