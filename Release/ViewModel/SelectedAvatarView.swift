@@ -14,7 +14,9 @@ struct SelectedAvatarView: View {
 
         ZStack{
             if isSelected{
-                Circle().frame(width: 65, height: 65)
+                Circle()
+                    .fill(Color("Primary"))
+                    .frame(width: 65, height: 65)
             }
             Image(avatar).resizable().frame(width: 60, height: 60)
         }
