@@ -18,7 +18,7 @@ struct DateDisplayViewModel: View {
     }
 }
 
-struct DateDisplayView_Previews: PreviewProvider {
+struct DateDisplayViewModel_Previews: PreviewProvider {
     static var previews: some View {
         DateDisplayViewModel()
     }
