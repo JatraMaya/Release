@@ -36,51 +36,22 @@ struct DashboardView: View {
                 }.frame(alignment: .trailing).padding(.trailing, 20)
             }.frame(height: 90)
 
-            if tabViewIndex == 0 {
-                VStack{
-                    Text("Hi, I am Mora!")
-                        .font(.custom("Poppins-SemiBold", size: 20))
-                        .padding(.bottom, 10)
-                    HStack{
-                        Text("How are you feeling today,")
-                            .font(.custom("Poppins-Medium", size: 18))
-                        Text(username)
-                            .font(.custom("Poppins-Medium", size: 18))
-                            .foregroundColor(Color("Primary"))
-                        Text("?")
-                        .font(.custom("Poppins-Medium", size: 18))                    }
-
-                }.frame(height: 90)
-                    .padding([.top, .bottom], 50)
-            } else if tabViewIndex == 1 {
-                VStack{
-                    Text("You know, it’s okay to not feeling okay.")
-                        .font(.custom("Poppins-Medium", size: 18))
-                    Text("You can tell me whatever you want.")
-                        .font(.custom("Poppins-Medium", size: 18))
-                    Text("I am all ears👂🏻")
-                        .font(.custom("Poppins-Medium", size: 18))
-                }.frame(height: 90)
-                    .padding([.top, .bottom], 50)
-
-            } else {
-                VStack{
-                    Text("Don’t afraid.")
-                        .font(.custom("Poppins-Medium", size: 18))
-                    Text("I won’t judge! I am here for you")
-                        .font(.custom("Poppins-Medium", size: 18))
-                    Text("So, let’s vent it out, shall we?")
-                        .font(.custom("Poppins-Medium", size: 18))
-
-                }.frame(height: 90)
-                    .padding([.top, .bottom], 50)
-
-            }
-
-
-                Image("doggo").resizable().frame(width: 187, height: 240)
+            TabView(selection: $tabViewIndex){
+                Subtitle1(username: username)
+                    .tag(0)
+                    .highPriorityGesture(DragGesture()) // <== modifier to disable drag gesture
+                Subtitle2()
+                    .tag(1)
+                    .highPriorityGesture(DragGesture())
+                Subtitle3()
+                    .tag(2)
+                    .highPriorityGesture(DragGesture())
+            }.tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+                .frame(height: 150)
+            Image("doggo").resizable().frame(width: 187, height: 240)
+            Spacer()
             NavigationLink{
-                ARViewContainer()
+                StartingMoodView()
             }label: {
                 Text("Continue")
                     .font(.custom("Poppins-Medium", size: 17))
@@ -91,13 +62,14 @@ struct DashboardView: View {
             }
             .padding(.top, 50)
                 Spacer()
+            Spacer()
         }
         .onAppear{
             // Set isOnboarding value
             isOnboarding = true
 
             // Automatically change display on dashboardView
-            time = Timer.scheduledTimer(withTimeInterval: 2, repeats: true, block: { _ in
+            time = Timer.scheduledTimer(withTimeInterval: 1.5, repeats: true, block: { _ in
                 withAnimation(.easeInOut){
                     rotateSubtitle()
                 }})
