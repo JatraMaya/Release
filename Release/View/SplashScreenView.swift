@@ -11,7 +11,7 @@ struct SplashScreenView: View {
     @State var animate: Bool = false
     var body: some View {
         ZStack{
-            Color(hex: "F8E9FF").ignoresSafeArea()
+            Color("LighterPurple").ignoresSafeArea()
             Image("SplashShape").resizable().padding(.top, 350).ignoresSafeArea()
             VStack{
                 Spacer()
