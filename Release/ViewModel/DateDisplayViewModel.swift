@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct DateDisplayView: View {
+struct DateDisplayViewModel: View {
     var date: Date = Date()
     var body: some View {
         HStack{
@@ -20,6 +20,6 @@ struct DateDisplayView: View {
 
 struct DateDisplayView_Previews: PreviewProvider {
     static var previews: some View {
-        DateDisplayView()
+        DateDisplayViewModel()
     }
 }
