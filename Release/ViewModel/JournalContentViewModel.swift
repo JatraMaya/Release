@@ -31,7 +31,8 @@ struct JournalContentViewModel: View {
                         .stroke(index % 2 == 0 ? .blue : Color("Primary"), lineWidth: 2).opacity(index % 2 == 0 ? 0 : 1)
                 )
         }
-        .frame(width: 295, height: 100, alignment: .center)
+        .frame(width: 200, height: 100, alignment: .center)
+
     }
 }
 
