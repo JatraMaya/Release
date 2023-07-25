@@ -5,7 +5,7 @@ options:
     iOS:
       TARGETED_DEVICE_FAMILY: "1"  # 1 for iPhone, 2 for iPad
 targets:
-  Release:
+  Release!:
     type: application
     platform: iOS
     deploymentTarget: "16.4"
@@ -19,7 +19,11 @@ targets:
         CFBundleVersion: "1"
     dependencies:
       - package: HorizonCalendar
+      - package: FSCalendar
 packages:
   HorizonCalendar:
     url: https://github.com/airbnb/HorizonCalendar
     majorVersion: 1.16.0
+  FSCalendar:
+    url: https://github.com/WenchaoD/FSCalendar
+    majorVersion: 2.8.3
