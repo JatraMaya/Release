@@ -8,16 +8,14 @@
 import SwiftUI
 import HorizonCalendar
 
-struct HorrizonView: UIViewRepresentable {
-
-
+struct HorizonView: UIViewRepresentable {
 
 func makeUIView(context: Context) -> CalendarView {
     let calendarView = CalendarView(initialContent: makeContent())
     return calendarView
 }
 
-func updateUIView(_ uiView: CalendarView, context: UIViewRepresentableContext<HorrizonView>) {}
+func updateUIView(_ uiView: CalendarView, context: UIViewRepresentableContext<HorizonView>) {}
 
 private func makeContent() -> CalendarViewContent {
     let calendar = Calendar(identifier: .gregorian)

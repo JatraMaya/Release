@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "logo fix 1.png",
+      "filename" : "Hallo 1.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "logo fix 2.png",
+      "filename" : "Hallo 2.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "logo fix 3.png",
+      "filename" : "Hallo 3.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
