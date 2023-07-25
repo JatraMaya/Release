@@ -17,12 +17,16 @@ struct JournalViewModel: View {
         VStack{
             HStack{
                 Spacer()
-
-                    Text(moodAfter)//.frame(width: 30, height: 30)
+                Text(moodAfter)
                 Image(systemName: "arrow.right").foregroundColor(Color("Primary"))
-                    Text(moodBefore)//.frame(width: 30, height: 30)
+                Text(moodBefore)
                 Spacer()
-                Text(date.formatted(.dateTime.weekday(.wide).day().month().year()))
+                HStack{
+                    Group{
+                        Text("\(date.formatted(.dateTime.weekday(.wide))),")
+                        Text(date.formatted(.dateTime.day().month().year().locale(Locale(identifier: "id_ID"))))
+                    }
+                }
                 Spacer()
             }
             HStack{
@@ -44,12 +48,7 @@ struct JournalViewModel: View {
                         RoundedRectangle(cornerRadius: 25)
                             .stroke(index % 2 == 0 ? .blue : Color("Primary"), lineWidth: 2).opacity(index % 2 == 0 ? 0 : 1)
                     )
-
-//                    .border(index % 2 == 0 ? .white : Color("Primary"))
-
             }.frame(width: 300, height: 100, alignment: .center)
-//                .padding(.bottom, 10)
-//                .background(.black)
         }
     }
 }
