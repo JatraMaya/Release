@@ -17,30 +17,19 @@ struct AngerJourneyView: View {
                 Text("Summary").tag(2)
             }.pickerStyle(SegmentedPickerStyle())
             Spacer()
+            Spacer()
+            Spacer()
 
                 if angerJourneySelection == 0{
-                    ListTypeView().animation(.easeIn, value: angerJourneySelection)
+                    ListTypeView()
                 } else if angerJourneySelection == 1 {
                     CalenderTypeView()
-                        .animation(.easeIn, value: angerJourneySelection)
                 } else {
                     SummaryTypeView()
-                        .animation(.easeIn, value: angerJourneySelection)
                 }
+
             Spacer()
         }
-    }
-}
-
-struct Test: View {
-    var body: some View {
-        Text("Tab 1")
-    }
-}
-
-struct Test2: View {
-    var body: some View {
-        Text("Tab 2")
     }
 }
 
