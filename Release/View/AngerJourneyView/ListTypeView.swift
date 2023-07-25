@@ -9,9 +9,11 @@ import SwiftUI
 
 struct ListTypeView: View {
 //    var journal: [JournalModel] = []
-    var journal: [JournalModel] = [JournalModel(moodBefore: "angry", moodAfter: "furious", content: "hahahahaha, masalah lorem ipsum dolret sit amet, somedipa, semotthing, is in the way and I don't know what I'm trying to ", date: Date()), JournalModel(moodBefore: "upset", moodAfter: "mad", content: "hahahahahax", date: Date()), JournalModel(moodBefore: "a", moodAfter: "b", content: "hahahahaha", date: Date()),
-        JournalModel(moodBefore: "furious", moodAfter: "mad", content: "hahahahaha, masalah lorem ipsum dolret sit amet, somedipais in the way and I don't know what I'm trying to ", date: Date()),
-            JournalModel(moodBefore: "a", moodAfter: "b", content: "hahahahaha, masalah lorem ipsum dolret sit amet, somedipa, semotthing, is in the way and I don't know what I'm trying to ", date: Date())]
+    var journal: [JournalModel] = [
+        JournalModel(moodBefore: "😠", moodAfter: "🤬", content: "hahahahaha, masalah lorem ipsum dolret sit amet, somedipa, semotthing, is in the way and I don't know what I'm trying to ", date: Date()),
+        JournalModel(moodBefore: "😔", moodAfter: "😡", content: "hahahahahax", date: Date()), JournalModel(moodBefore: "a", moodAfter: "b", content: "hahahahaha", date: Date()),
+        JournalModel(moodBefore: "🤬", moodAfter: "😡", content: "hahahahaha, masalah lorem ipsum dolret sit amet, somedipais in the way and I don't know what I'm trying to ", date: Date()),
+        JournalModel(moodBefore: "😒", moodAfter: "😔", content: "hahahahaha, masalah lorem ipsum dolret sit amet, somedipa, semotthing, is in the way and I don't know what I'm trying to ", date: Date())]
     var body: some View {
         VStack{
             ScrollView{
