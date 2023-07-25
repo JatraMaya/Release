@@ -13,7 +13,7 @@ struct StartingMoodView: View {
                               MoodModel(image: "😠", text: "angry", color: "Primary"),
                               MoodModel(image: "😡", text: "mad", color: "Orange"),
                               MoodModel(image: "🤬", text: "furious", color: "Red")]
-
+    @State var selectedStartingMood: String = "😒"
     var body: some View {
         VStack{
             Spacer()
@@ -26,8 +26,15 @@ struct StartingMoodView: View {
                 .multilineTextAlignment(.center)
 
             ForEach(moods, id:\.self) { mood in
-                MoodViewModel(mood: mood)
-                    .padding([.top, .bottom], 5)
+                Button {
+                    selectedStartingMood = mood.image
+                }label: {
+                    MoodViewModel(mood: mood, moodIsSelected: selectedStartingMood == mood.image ? true : false)
+                        .foregroundColor(.black)
+                        .padding([.top, .bottom], 5)
+                }
+
+
                 
             }
             Spacer()
