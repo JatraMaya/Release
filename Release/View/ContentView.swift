@@ -30,7 +30,7 @@ struct ContentView : View {
             }
 
         }.onAppear{
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2.5){
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.55){
                 withAnimation{
                     self.isSplashNotActive = true
                 }

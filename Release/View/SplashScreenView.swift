@@ -34,7 +34,7 @@ struct SplashScreenView: View {
         .onAppear(perform: animateSplash)
     }
     func animateSplash() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
             withAnimation(.easeInOut(duration: 0.45)){
                 animate = true
             }

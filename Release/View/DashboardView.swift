@@ -11,7 +11,9 @@ struct DashboardView: View {
     let subtitles: [String] = ["How are you feeling today,",
                                "You know, it’s okay to not feeling okay. You can tell me whatever you want. I am all ears👂🏻",
                                "Don’t afraid. I won’t judge! I am here for you So, let’s vent it out, shall we?"]
+    @State var splashFinishAnimated = false
     @State var tabViewIndex = 0
+
     @AppStorage("avatar") var avatarImage: String = "a"
     @AppStorage("username") var username: String = "Samsul"
     @AppStorage("isOnboarding") var isOnboarding: Bool = false
@@ -50,7 +52,8 @@ struct DashboardView: View {
                     .highPriorityGesture(DragGesture())
             }.tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
                 .frame(height: 150)
-            Image("doggo").resizable().frame(width: 250, height: 250)
+            Image("Mora").resizable().frame(width: splashFinishAnimated ? 250 : 100, height: splashFinishAnimated ? 250 : 100)
+                .scaleEffect()
             Spacer()
             NavigationLink{
                 StartingMoodView()
@@ -69,6 +72,13 @@ struct DashboardView: View {
         .onAppear{
             // Set isOnboarding value
             isOnboarding = true
+
+            DispatchQueue.main.asyncAfter(deadline: .now()) {
+            withAnimation{
+
+                    splashFinishAnimated = true
+                }
+            }
 
             // Automatically change display on dashboardView
             time = Timer.scheduledTimer(withTimeInterval: 2.5, repeats: true, block: { _ in
