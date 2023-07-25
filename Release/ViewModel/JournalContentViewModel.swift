@@ -8,8 +8,30 @@
 import SwiftUI
 
 struct JournalContentViewModel: View {
+    var content: String = ""
+    var index: Int = 0
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        HStack{
+            Spacer()
+            Spacer()
+            Divider()
+                .frame(minWidth: 3)
+                .background(Color("Primary")).opacity(0.5)
+            Spacer()
+            Spacer()
+            Text(content)
+                .font(.custom("Poppins", size: 12))
+                .padding([.leading, .trailing], 10)
+                .frame(width: 280, height: 90, alignment: .leading)
+                .foregroundColor(index % 2 == 0 ? .white : .black)
+                .background(index % 2 == 0 ? Color("Primary") : .white)
+                .cornerRadius(radius: 25, corners: .allCorners)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 25)
+                        .stroke(index % 2 == 0 ? .blue : Color("Primary"), lineWidth: 2).opacity(index % 2 == 0 ? 0 : 1)
+                )
+        }
+        .frame(width: 295, height: 100, alignment: .center)
     }
 }
 
