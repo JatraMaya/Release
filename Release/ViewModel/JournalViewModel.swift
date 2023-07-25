@@ -18,6 +18,7 @@ struct JournalViewModel: View {
             MoodBeforeAfterViewModel(moodBefore: moodBefore, moodAfter: moodAfter, date: date)
             JournalContentViewModel(content: content, index: index)
         }
+        .padding(.bottom, 20)
     }
 }
 
