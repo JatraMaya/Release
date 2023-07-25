@@ -69,7 +69,7 @@ struct DashboardView: View {
             isOnboarding = true
 
             // Automatically change display on dashboardView
-            time = Timer.scheduledTimer(withTimeInterval: 1.5, repeats: true, block: { _ in
+            time = Timer.scheduledTimer(withTimeInterval: 2.5, repeats: true, block: { _ in
                 withAnimation(.easeInOut){
                     rotateSubtitle()
                 }})
