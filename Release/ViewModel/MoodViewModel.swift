@@ -9,21 +9,23 @@ import SwiftUI
 
 struct MoodViewModel: View {
     var mood: MoodModel = MoodModel(image: "😒", text: "Annoyed", color: "Green")
+    var moodIsSelected: Bool = false
     var body: some View {
         HStack{
             Text(mood.image)
-                .frame(width: 115, alignment: .center)
+                .frame(width: 125, height: 63, alignment: .center)
             Text(mood.text.capitalized)
-                .frame(width: 145, alignment: .leading)
+                .frame(width: 155, height: 63, alignment: .leading)
         }
         .frame(width: 300, height: 63)
+        .background(moodIsSelected ? Color(mood.color) : nil)
+        .cornerRadius(radius: 20, corners: .allCorners)
         .overlay(
-            RoundedRectangle(cornerRadius: 25)
+            RoundedRectangle(cornerRadius: 20)
                 .stroke(Color(mood.color))
                 .shadow(radius: 3, x: 0, y: 5)
-
+                .opacity(moodIsSelected ? 0 : 1)
         )
-//        .background(.black)
     }
 }
 
