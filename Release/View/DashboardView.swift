@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct DashboardView: View {
-    let subtitles: [String] = ["How are you feeling today,", "You know, it’s okay to not feeling okay. You can tell me whatever you want. I am all ears👂🏻", "Don’t afraid. I won’t judge! I am here for you So, let’s vent it out, shall we?"]
+    let subtitles: [String] = ["How are you feeling today,",
+                               "You know, it’s okay to not feeling okay. You can tell me whatever you want. I am all ears👂🏻",
+                               "Don’t afraid. I won’t judge! I am here for you So, let’s vent it out, shall we?"]
     @State var tabViewIndex = 0
     @AppStorage("avatar") var avatarImage: String = "a"
     @AppStorage("username") var username: String = "Samsul"
@@ -74,7 +76,6 @@ struct DashboardView: View {
                     rotateSubtitle()
                 }})
         }.onDisappear{
-
             // Turn of the timer when view disappear
             time?.invalidate()
         }.navigationBarBackButtonHidden()}
