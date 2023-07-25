@@ -13,23 +13,24 @@ struct StartingMoodView: View {
                               MoodModel(image: "😠", text: "angry", color: "Primary"),
                               MoodModel(image: "😡", text: "mad", color: "Orange"),
                               MoodModel(image: "🤬", text: "furious", color: "Red")]
-    @State var selectedStartingMood: String = "😒"
+    @State var selectedMood: String = ""
     var body: some View {
         VStack{
             Spacer()
             Text("Take a minute...")
                 .font(.custom("Poppins-SemiBold", size: 20))
                 .padding()
-            Text("Mora needs to know how are you feeling now")
+            Text("Mora needs to know how are you")
+                .font(.custom("Poppins-Medium", size: 18))
+            Text("feeling now")
                 .font(.custom("Poppins-Medium", size: 18))
                 .padding(.bottom, 50)
-                .multilineTextAlignment(.center)
 
             ForEach(moods, id:\.self) { mood in
                 Button {
-                    selectedStartingMood = mood.image
+                    selectedMood = mood.image
                 }label: {
-                    MoodViewModel(mood: mood, moodIsSelected: selectedStartingMood == mood.image ? true : false)
+                    MoodViewModel(mood: mood, moodIsSelected: selectedMood == mood.image ? true : false)
                         .foregroundColor(.black)
                         .padding([.top, .bottom], 5)
                 }
@@ -50,6 +51,8 @@ struct StartingMoodView: View {
                     .padding(.bottom, 50)
 
             }
+            .disabled(selectedMood.isEmpty)
+            .opacity(selectedMood.isEmpty ? 0.6 : 1)
         }
     }
 }
