@@ -8,29 +8,19 @@
 import SwiftUI
 
 struct JournalViewModel: View {
-    var moodBefore: String = "angry"
-    var moodAfter: String = "furious"
+    var moodBefore: String = "😠"
+    var moodAfter: String = "🤬"
     var content: String = "some content"
     var index: Int = 1
-   var date: Date = Date()
+    var date: Date = Date()
     var body: some View {
         VStack{
             HStack{
                 Spacer()
-                ZStack{
-                    Circle()
-                        .fill(Color("Primary"))
-                        .frame(width: 32, height: 32)
-                    Image(moodAfter).resizable().frame(width: 30, height: 30)
-                }
 
+                    Text(moodAfter)//.frame(width: 30, height: 30)
                 Image(systemName: "arrow.right").foregroundColor(Color("Primary"))
-                ZStack{
-                    Circle()
-                        .fill(Color("Primary"))
-                        .frame(width: 32, height: 32)
-                    Image(moodBefore).resizable().frame(width: 30, height: 30)
-                }
+                    Text(moodBefore)//.frame(width: 30, height: 30)
                 Spacer()
                 Text(date.formatted(.dateTime.weekday(.wide).day().month().year()))
                 Spacer()
