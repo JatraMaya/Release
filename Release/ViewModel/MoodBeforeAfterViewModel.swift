@@ -8,8 +8,17 @@
 import SwiftUI
 
 struct MoodBeforeAfterViewModel: View {
+    var moodBefore: String = "😁"
+    var moodAfter: String = "🤪"
+    var date: Date = Date()
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        HStack{
+            Text(moodAfter)
+            Image(systemName: "arrow.right").foregroundColor(Color("Primary"))
+            Text(moodBefore)
+            Spacer()
+          DateDisplayViewModel(date: date)        }
+        .frame(width: 300)
     }
 }
 
