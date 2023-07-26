@@ -8,17 +8,17 @@
 import SwiftUI
 
 struct ListTypeView: View {
-//    var journal: [JournalModel] = []
-    var journal: [JournalModel] = [
-        JournalModel(moodBefore: "😠", moodAfter: "🤬", content: "hahahahaha, masalah lorem ipsum dolret sit amet, somedipa, semotthing, is in the way and I don't know what I'm trying to ", date: Date()),
-        JournalModel(moodBefore: "😔", moodAfter: "😡", content: "hahahahahax", date: Date()), JournalModel(moodBefore: "😍", moodAfter: "🙂", content: "hahahahaha", date: Date()),
-        JournalModel(moodBefore: "🤬", moodAfter: "😡", content: "hahahahaha, masalah lorem ipsum dolret sit amet, somedipais in the way and I don't know what I'm trying to ", date: Date()),
-        JournalModel(moodBefore: "😒", moodAfter: "😔", content: "hahahahaha, masalah lorem ipsum dolret sit amet, somedipa, semotthing, is in the way and I don't know what I'm trying to ", date: Date())]
+    var journal: [JournalModel] = []
+//    var journal: [JournalModel] = [
+//        JournalModel(moodBefore: "😠", moodAfter: "🤬", content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", date: Date()),
+//        JournalModel(moodBefore: "😔", moodAfter: "😡", content: "hahahahahax", date: Date()), JournalModel(moodBefore: "😍", moodAfter: "🙂", content: "hahahahaha", date: Date()),
+//        JournalModel(moodBefore: "🤬", moodAfter: "😡", content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", date: Date()),
+//        JournalModel(moodBefore: "😒", moodAfter: "😔", content: "hahahahaha, masalah lorem ipsum dolret sit amet, somedipa, semotthing, is in the way and I don't know what I'm trying to ", date: Date())]
     var body: some View {
         VStack{
             ScrollView{
                 if journal.count == 0 {
-                    Text("Empty")
+                    ListTypeViewEmpty()
                 }else {
                     ForEach(Array(journal.enumerated()), id: \.element) { i, j in
                         JournalViewModel(moodBefore: j.moodBefore, moodAfter: j.moodAfter, content: j.content, index: i, date: j.date)
@@ -27,6 +27,23 @@ struct ListTypeView: View {
                 }
             }.scrollIndicators(.hidden)
         }
+    }
+}
+
+struct ListTypeViewEmpty: View {
+    var body: some View {
+        VStack{
+            Spacer()
+            Image("Mora")
+                .resizable()
+                .frame(width: 250, height: 250)
+            Spacer()
+            Text("It's empty")
+                .font(.custom("Poppins-SemiBold", size: 18))
+                .frame(height: 25)
+            Text("Looks like everything is fine so far..")
+                .font(.custom("Poppins", size: 18))
+        }.frame(height: UIScreen.main.bounds.height / 2)
     }
 }
 
