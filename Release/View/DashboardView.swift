@@ -28,6 +28,7 @@ struct DashboardView: View {
                         Image(avatarImage).resizable().frame(width: 60, height: 60)
                     }.padding(.leading, 20)
                     Text(username.capitalized).font(.custom("Poppins-SemiBold", size: 17)).padding(.leading, 10)
+                        .lineLimit(1)
                 }
                 Spacer()
                 NavigationLink{

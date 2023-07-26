@@ -18,6 +18,8 @@ struct Subtitle1: View {
                 Text("How are you feeling today,")
                     .font(.custom("Poppins-Medium", size: 18))
                 Text(username)
+                    .lineLimit(1)
+                    .frame(width: 50)
                     .font(.custom("Poppins-Medium", size: 18))
                     .foregroundColor(Color("Primary"))
                 Text("?")
