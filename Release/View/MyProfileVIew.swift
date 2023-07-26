@@ -23,6 +23,7 @@ struct MyProfileVIew: View {
             Text("My Profile").font(.custom("Poppins-SemiBold", size: 17)).padding(.top, 15)
             Spacer()
             Image(avatarImage).resizable().frame(width: 200, height: 200)
+                .padding(.bottom, 20)
             Text("Choose Avatar:").frame(width: 300, alignment: .leading).font(.custom("Poppins-SemiBold", size: 17))
             ScrollView(.horizontal, showsIndicators: false){
                 HStack{
@@ -47,7 +48,8 @@ struct MyProfileVIew: View {
                         .cornerRadius(radius: 20, corners: .allCorners).shadow(radius:3, x: 0, y: 5)
                 }).disabled(username.isEmpty)
                 .opacity(!username.isEmpty ? 1 : 0.6)
-                Spacer()
+            Spacer()
+            Spacer()
             }
     }
 }
