@@ -22,3 +22,9 @@ struct SelectedAvatarView: View {
         }
     }
 }
+
+struct SelectedAvatarView_Previews: PreviewProvider {
+    static var previews: some View {
+       SelectedAvatarView(avatar: "a", isSelected: true)
+    }
+}
