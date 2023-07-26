@@ -37,7 +37,12 @@ struct OnBoardingView1: View {
                         .cornerRadius(radius: 30, corners: .allCorners)
                         .shadow(color: .black, radius:3, x: 0, y: 3)
                 }
-                Spacer()
+                Group{
+                    Spacer()
+                    Spacer()
+                    Spacer()
+                    Spacer()
+                }
             }
         }
     }
