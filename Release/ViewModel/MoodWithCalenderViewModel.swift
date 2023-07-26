@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct MoodBeforeAfterViewModel: View {
+struct MoodWithCalenderViewModel: View {
     var moodBefore: String = "😁"
     var moodAfter: String = "🤪"
     var date: Date = Date()
@@ -22,8 +22,8 @@ struct MoodBeforeAfterViewModel: View {
     }
 }
 
-struct MoodBeforeAfterViewModel_Previews: PreviewProvider {
+struct MoodWithCalenderViewModel_Previews: PreviewProvider {
     static var previews: some View {
-        MoodBeforeAfterViewModel()
+        MoodWithCalenderViewModel()
     }
 }

@@ -15,7 +15,7 @@ struct JournalViewModel: View {
     var date: Date = Date()
     var body: some View {
         VStack{
-            MoodBeforeAfterViewModel(moodBefore: moodBefore, moodAfter: moodAfter, date: date)
+            MoodWithCalenderViewModel(moodBefore: moodBefore, moodAfter: moodAfter, date: date)
             JournalContentViewModel(content: content, index: index)
         }
         .padding(.bottom, 20)
