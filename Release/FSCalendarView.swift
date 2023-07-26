@@ -24,9 +24,17 @@ class CalendarModule: UIViewController, FSCalendarDelegate {
     }
 
     private func initCalendar() {
-        calendar.frame = CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.width)
+        calendar.frame = CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height - 150)
         calendar.appearance.todayColor = UIColor.systemGreen
-        calendar.appearance.selectionColor = UIColor.systemBlue
+        calendar.appearance.weekdayFont = UIFont.systemFont(ofSize: 13, weight: .semibold)
+        calendar.appearance.weekdayTextColor = .black
+        calendar.appearance.headerTitleColor = .black
+        calendar.appearance.headerTitleFont = UIFont.systemFont(ofSize: 17, weight: .semibold)
+        calendar.appearance.titleFont = UIFont.systemFont(ofSize: 20)
+        calendar.appearance.titlePlaceholderColor = UIColor.white
+        calendar.appearance.caseOptions = FSCalendarCaseOptions.weekdayUsesUpperCase
+        calendar.pagingEnabled = false
+        calendar.scrollDirection = .horizontal
     }
 }
 
