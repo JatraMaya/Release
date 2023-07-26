@@ -8,9 +8,6 @@
 import SwiftUI
 
 struct DashboardView: View {
-    let subtitles: [String] = ["How are you feeling today,",
-                               "You know, it’s okay to not feeling okay. You can tell me whatever you want. I am all ears👂🏻",
-                               "Don’t afraid. I won’t judge! I am here for you So, let’s vent it out, shall we?"]
     @State var splashFinishAnimated = false
     @State var tabViewIndex = 0
 
@@ -30,11 +27,13 @@ struct DashboardView: View {
                             .frame(width: 65, height: 65)
                         Image(avatarImage).resizable().frame(width: 60, height: 60)
                     }.padding(.leading, 20)
-                    Text(username.capitalized).font(.custom("Poppins-bold", size: 20)).padding(.leading, 10)
+                    Text(username.capitalized).font(.custom("Poppins-SemiBold", size: 17)).padding(.leading, 10)
                 }
                 Spacer()
                 NavigationLink{
                     AngerJourneyView()
+                        .navigationTitle("Anger Journey")
+                        .navigationBarTitleDisplayMode(.inline)
                 }label: {
                     Image("Calender-icon").resizable().frame(width: 20, height: 20)
                 }.frame(alignment: .trailing).padding(.trailing, 20)
