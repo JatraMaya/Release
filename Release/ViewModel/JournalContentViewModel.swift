@@ -20,6 +20,7 @@ struct JournalContentViewModel: View {
             Spacer()
             Spacer()
             Text(content)
+                .lineLimit(4)
                 .font(.custom("Poppins", size: 12))
                 .padding([.leading, .trailing], 10)
                 .frame(width: 280, height: 90, alignment: .leading)
@@ -38,6 +39,6 @@ struct JournalContentViewModel: View {
 
 struct JournalContentViewModel_Previews: PreviewProvider {
     static var previews: some View {
-        JournalContentViewModel()
+        JournalContentViewModel(content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.")
     }
 }
