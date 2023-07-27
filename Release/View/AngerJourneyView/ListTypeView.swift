@@ -34,9 +34,9 @@ struct ListTypeViewEmpty: View {
     var body: some View {
         VStack{
             Spacer()
-            Image("Mora")
+            Image("AngerJourney")
                 .resizable()
-                .frame(width: 250, height: 250)
+                .frame(width: 300, height: 300)
             Spacer()
             Text("It's empty")
                 .font(.custom("Poppins-SemiBold", size: 18))
