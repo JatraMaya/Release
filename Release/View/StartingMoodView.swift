@@ -40,7 +40,7 @@ struct StartingMoodView: View {
             }
             Spacer()
             NavigationLink{
-                ARViewContainer()
+                SpeakView()
             }label: {
                 Text("Start Talk")
                     .font(.custom("Poppins-Medium", size: 17))
