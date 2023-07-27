@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct CalenderTypeView: View {
+    @State var dates: [String] = ["2023-07-01", "2023-07-29"]
+
     var body: some View {
-        Text("Calender")
+        CalendarView(dates, mode: .basicCalendarMode)
     }
 }
 

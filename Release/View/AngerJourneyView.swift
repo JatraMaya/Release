@@ -13,7 +13,7 @@ struct AngerJourneyView: View {
         VStack {
             Picker(selection: $angerJourneySelection, label: Text("Selection")) {
                 Text("List").tag(0)
-                Text("History").tag(1)
+                Text("Calendar").tag(1)
                 Text("Summary").tag(2)
             }.pickerStyle(SegmentedPickerStyle())
             Spacer()
