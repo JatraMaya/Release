@@ -8,23 +8,25 @@
 import SwiftUI
 import FSCalendar
 
-class CalendarModule: UIViewController, FSCalendarDelegate {
+struct CalendarView: UIViewRepresentable {
+    @State var reservedDates: [JournalModel] = []
 
-    var calendar = FSCalendar()
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        calendar.delegate = self
+    init(_ reservedDates: [JournalModel]) {
+        self.reservedDates = reservedDates
     }
 
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        initCalendar()
-        view.addSubview(calendar)
+    func makeCoordinator() -> Coordinator{
+        return Coordinator(reservedDates)
     }
 
-    private func initCalendar() {
-        calendar.frame = CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height - 150)
+    func makeUIView(context: Context) -> some UIView {
+        let calendar = FSCalendar()
+        // Delegate & Data source
+        calendar.delegate = context.coordinator
+        calendar.dataSource = context.coordinator
+
+        // Event Options
+        calendar.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height )
         calendar.appearance.todayColor = UIColor.systemGreen
         calendar.today = nil
         calendar.appearance.weekdayFont = UIFont.systemFont(ofSize: 13, weight: .semibold)
@@ -37,33 +39,27 @@ class CalendarModule: UIViewController, FSCalendarDelegate {
         calendar.appearance.headerSeparatorColor = nil
         calendar.pagingEnabled = false
         calendar.scrollDirection = .horizontal
-    }
-}
 
-struct CalendarModuleViewController: UIViewControllerRepresentable {
-
-    typealias UIViewControllerType = UIViewController
-
-    func makeUIViewController(context: UIViewControllerRepresentableContext<CalendarModuleViewController>) -> UIViewController {
-        let viewController = CalendarModule()
-        return viewController
+        return calendar
     }
 
-    func updateUIViewController(_ uiViewController: UIViewController, context: UIViewControllerRepresentableContext<CalendarModuleViewController>) {
+    func updateUIView(_ uiView: UIViewType, context: Context) {
 
     }
 
-    func makeCoordinator() -> Coordinator {
-        return Coordinator(self)
-    }
+    final class Coordinator: NSObject, FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelegateAppearance {
+        let reservedDates: [JournalModel]
 
-    final class Coordinator: NSObject, FSCalendarDelegate {
-        private var parent: CalendarModuleViewController
-
-
-        init (_ parent: CalendarModuleViewController) {
-            self.parent = parent
+        init(_ dates: [JournalModel]) {
+            self.reservedDates = dates
         }
+
+        func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
+            print("selected")
+        }
+
+
+
 
     }
 }
