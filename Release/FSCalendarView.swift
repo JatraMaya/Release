@@ -66,8 +66,6 @@ extension CalendarView {
     }
 }
 
-//extension TestCal.Coordinator: FSCalendarDelegate { }
-
 extension CalendarView.Coordinator: FSCalendarDataSource {
 
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
