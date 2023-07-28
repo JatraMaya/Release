@@ -19,7 +19,6 @@ struct SpeakView: View {
     @StateObject private var speechRecognizer = SpeechRecognizer()
     @State private var isRecording: Bool = false
     @State private var showTranscript: Bool = false
-    
 //    private var models: [Model] = {
 //        let fileManager = FileManager.default
 //
@@ -54,6 +53,7 @@ struct PlacementBodyAR: View {
 //    @Binding var selectedModel: Model?
     @State private var isMic: Bool = false
     @State private var isListening = false
+    @State var showTranscript: Bool = false
     
     var body: some View {
         if isMic {
@@ -85,11 +85,14 @@ struct PlacementBodyAR: View {
                     if #available(iOS 16.0, *) {
                         Spacer()
                         Spacer()
-                        SpeechPause(text: "")
+                        SpeechPause(showTranscript: $showTranscript, text: "", isListening: $isListening)
                             .presentationDragIndicator(.hidden)
                             .presentationDetents([.medium])
                         
                     }
+                }
+                .navigationDestination(isPresented: $showTranscript) {
+                    EndMoodView(showTranscript: $showTranscript)
                 }
             
         } else {

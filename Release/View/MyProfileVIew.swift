@@ -17,6 +17,7 @@ struct MyProfileVIew: View {
     
     @AppStorage("avatar") var avatarImage: String = "a"
     @AppStorage("username") var username: String = ""
+    
 
     var body: some View {
         VStack{
@@ -54,8 +55,8 @@ struct MyProfileVIew: View {
     }
 }
 
-struct MyProfileVIew_Previews: PreviewProvider {
-    static var previews: some View {
-        MyProfileVIew()
-    }
-}
+//struct MyProfileVIew_Previews: PreviewProvider {
+//    static var previews: some View {
+//        MyProfileVIew()
+//    }
+//}

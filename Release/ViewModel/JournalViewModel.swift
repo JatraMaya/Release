@@ -13,6 +13,8 @@ struct JournalViewModel: View {
     var content: String = "some content"
     var index: Int = 0
     var date: Date = Date()
+
+    
     var body: some View {
         VStack{
             MoodWithCalenderViewModel(moodBefore: moodBefore, moodAfter: moodAfter, date: date)

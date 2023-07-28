@@ -16,6 +16,7 @@ struct DashboardView: View {
     @AppStorage("isOnboarding") var isOnboarding: Bool = false
 
     @State var time: Timer?
+    
 
     @State var emotionsIndex: Int = 0
     var body: some View {
@@ -101,9 +102,9 @@ struct DashboardView: View {
     }
 }
 
-
-struct DashboardView_Previews: PreviewProvider {
-    static var previews: some View {
-        DashboardView()
-    }
-}
+//
+//struct DashboardView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        DashboardView()
+//    }
+//}

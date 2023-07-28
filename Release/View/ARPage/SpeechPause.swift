@@ -12,10 +12,11 @@ import CoreData
 struct SpeechPause: View {
     @State private var currentDate = Date()
     @State var isTimerRunning = false
-    @State private var showTranscript: Bool = false
+    @Binding var showTranscript: Bool
     @StateObject private var speechRecognizer = SpeechRecognizer()
     @State private var isRecording: Bool = false
     @State var text: String
+    @Binding var isListening: Bool
     
     @State var interval = TimeInterval()
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
@@ -68,6 +69,7 @@ struct SpeechPause: View {
                             
                             Spacer()
                             Button {
+                               isListening = false
                                 showTranscript.toggle()
                                 
                             } label: {
@@ -95,6 +97,7 @@ struct SpeechPause: View {
                             }
                             isRecording.toggle()
                             print("mulai record")
+                           
                         } label: {
                             ZStack {
                                 Circle()
@@ -118,13 +121,16 @@ struct SpeechPause: View {
                         }
                         .padding(.top, 50)
                         
-                        .fullScreenCover(isPresented: $showTranscript) {
-                            
-                            SpeechTextView(content: speechRecognizer.transcript)
-//                            test(transcript: speechRecognizer.transcript)
-//                            testSpeech(kalimat: speechRecognizer.transcript)
-                            
-                              }
+//                        .fullScreenCover(isPresented: $showTranscript) {
+//
+////                            SpeechTextView(content: speechRecognizer.transcript)
+////                            test(transcript: speechRecognizer.transcript)
+////                            testSpeech(kalimat: speechRecognizer.transcript)
+//                            EndMoodView(showTranscript: $showTranscript)
+//
+//                              }
+
+                        
                     }
                     
                 )

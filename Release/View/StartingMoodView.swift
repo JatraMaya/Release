@@ -13,7 +13,10 @@ struct StartingMoodView: View {
                               MoodModel(image: "😠", text: "angry", color: "Primary"),
                               MoodModel(image: "😡", text: "mad", color: "Orange"),
                               MoodModel(image: "🤬", text: "furious", color: "Red")]
-    @State var selectedMood: String = ""
+    @State private var selectedMood: String = ""
+    @AppStorage("startMood") var startMood = ""
+    @StateObject var coreDataViewModel = CoreDataViewModel()
+    
     var body: some View {
         VStack{
             Spacer()
@@ -28,9 +31,10 @@ struct StartingMoodView: View {
 
             ForEach(moods, id:\.self) { mood in
                 Button {
-                    selectedMood = mood.image
+                    startMood = mood.image
+//                   
                 }label: {
-                    MoodViewModel(mood: mood, moodIsSelected: selectedMood == mood.image ? true : false)
+                    MoodViewModel(mood: mood, moodIsSelected: startMood == mood.image ? true : false)
                         .foregroundColor(.black)
                         .padding([.top, .bottom], 5)
                 }
@@ -51,14 +55,15 @@ struct StartingMoodView: View {
                     .padding(.bottom, 50)
 
             }
-            .disabled(selectedMood.isEmpty)
-            .opacity(selectedMood.isEmpty ? 0.6 : 1)
+            .disabled(startMood.isEmpty)
+            .opacity(startMood.isEmpty ? 0.6 : 1)
         }
+        
     }
 }
 
-struct StarttingMoodView_Previews: PreviewProvider {
-    static var previews: some View {
-        StartingMoodView()
-    }
-}
+//struct StarttingMoodView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        StartingMoodView()
+//    }
+//}

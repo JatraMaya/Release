@@ -31,31 +31,40 @@
                                     {
                                       "configurationBox" : {
                                         "configuration" : {
-                                          "animationSpeed" : 1,
-                                          "audioGain" : 1,
-                                          "clipDuration" : 0,
-                                          "clipStart" : 0,
-                                          "iterations" : 1,
-                                          "multiplePerformType" : "ignore request",
-                                          "muteAudio" : false,
-                                          "reversed" : false,
-                                          "reverses" : false,
+                                          "angularCoefficient" : 1,
+                                          "duration" : 2,
+                                          "isTransformInitKeyPath" : true,
+                                          "linearCoefficient" : 1,
+                                          "location" : [
+                                            -8.9514218259978406e-09,
+                                            0,
+                                            -1.3991637182186878e-08
+                                          ],
+                                          "moveEase" : "easeInOut",
+                                          "orientation" : [
+                                            0.1736481785774231,
+                                            0,
+                                            0,
+                                            0.98480772972106934
+                                          ],
+                                          "respectPhysics" : false,
                                           "target" : [
-                                            "F1728F14-2BE4-4A42-9B28-4CBB7291917E"
+
                                           ]
                                         },
                                         "name" : {
-                                          "type" : "startAnimate"
+                                          "arguments" : "absolute",
+                                          "type" : "transform"
                                         }
                                       },
-                                      "identifier" : "4A0D2A8F-6113-48CC-A92F-374765633019",
+                                      "identifier" : "8E4C5F38-FC11-4517-B9DB-DB99D9561D76",
                                       "isEnabled" : true
                                     }
                                   ],
                                   "__version" : 1
                                 }
                               ],
-                              "identifier" : "9CF528FB-2075-4661-80A9-BC72AA8136E5",
+                              "identifier" : "8A0EED8B-5424-430F-8E06-9E025AEFD183",
                               "isEnabled" : true
                             }
                           ],
@@ -68,9 +77,9 @@
                         0.69019609689712524,
                         1
                       ],
-                      "identifier" : "1087A51E-9DCC-4A81-8556-7B5D9B00F4A7",
+                      "identifier" : "18BDD4BD-2632-4609-8C69-1D9E4B3646FB",
                       "isEnabled" : true,
-                      "isLooping" : true,
+                      "isLooping" : false,
                       "isModal" : false,
                       "name" : "Behavior",
                       "triggers" : [
@@ -83,7 +92,7 @@
                                 },
                                 "name" : "start"
                               },
-                              "identifier" : "8212D035-7617-4C58-A7D3-24690979360D",
+                              "identifier" : "71F699F0-4642-423D-8F40-BC5B5A5D7095",
                               "isEnabled" : true
                             }
                           ],
@@ -104,7 +113,9 @@
               "material" : "concrete",
               "overrides" : {
                 "children" : {
-                  "1BEDD902-3881-403F-88A4-64D462BDE4A4" : {
+                  "1CA93DC8-E05A-481E-88DE-9ADFF24D1FA2" : null,
+                  "4A213441-135C-450E-8EF8-1A4EAB267C1D" : null,
+                  "5B47FF5F-8D9E-4082-81A6-1BC0AC118DFD" : {
                     "overrides" : {
                       "children" : {
                         "USDScene" : {
@@ -128,7 +139,7 @@
                                 "url",
                                 {
                                   "typeName" : "String",
-                                  "value" : "model:f03b84ce6261bbf1af1d0e94b402f22b\/Sport_Shark_-_Animated_-_Free_download.usdz"
+                                  "value" : "model:b3ecd3a2278216afde487f293eb96196\/Mora%20basis%20model12.usdz"
                                 }
                               ],
                               [
@@ -148,7 +159,7 @@
                                 "RuntimeIdentifier",
                                 {
                                   "typeName" : "UUID",
-                                  "value" : "DCCAA054-5048-47E0-B0C9-5D95B60EC2FA"
+                                  "value" : "F64C102A-5749-4A2E-A523-0E6FB3276361"
                                 }
                               ]
                             ]
@@ -184,7 +195,7 @@
                           "RuntimeIdentifier",
                           {
                             "typeName" : "UUID",
-                            "value" : "F1728F14-2BE4-4A42-9B28-4CBB7291917E"
+                            "value" : "790B3286-B219-4471-88B6-82D6C9567A93"
                           }
                         ]
                       ]
@@ -192,28 +203,34 @@
                     "transform" : {
                       "matrix" : [
                         1,
-                        -3.0108637579730821e-24,
-                        -3.3861802251067274e-15,
                         0,
-                        3.0108637579730821e-24,
-                        1,
-                        -5.0976575665054628e-39,
                         0,
-                        3.3861802251067274e-15,
-                        -5.0976687768931774e-39,
+                        0,
+                        0,
                         1,
                         0,
-                        -0.012092664837837219,
-                        0.20095992088317871,
-                        -0.035859107971191406,
+                        0,
+                        0,
+                        0,
+                        1,
+                        0,
+                        0,
+                        0.0076474845409393311,
+                        0,
                         1
                       ]
                     }
                   },
-                  "4A213441-135C-450E-8EF8-1A4EAB267C1D" : null,
+                  "6E25229E-0301-4AEE-90BB-1E35E40DF99F" : null,
                   "7F5F1ADC-E5E4-4EF5-A5B5-FC43B071FFA5" : null,
+                  "65CB0721-8D23-43A0-AAA5-8846D67D02B8" : null,
+                  "185D0FCE-5677-4589-B86E-2622C47BE7F0" : null,
                   "632E476F-1E55-4E30-9723-1C51DD2E8B89" : null,
-                  "B91C7CA3-4AB1-4253-9A84-07383168A8A8" : null
+                  "0105349C-13FD-49EA-BFF4-83C1BC8E6A72" : null,
+                  "64155653-5640-4841-A287-C1437261AE8C" : null,
+                  "B91C7CA3-4AB1-4253-9A84-07383168A8A8" : null,
+                  "E0E6B9FB-173B-4C2D-BFBD-623667CA622B" : null,
+                  "E9BBEB4F-7E8C-477D-BF9F-066873E58BF6" : null
                 },
                 "factory" : null,
                 "runtimeAttributes" : [
@@ -227,24 +244,24 @@
                 ]
               },
               "physicsMode" : "grid",
-              "title" : "Shark",
+              "title" : "Box",
               "viewTransform" : {
                 "cameraTransform" : [
-                  0.99999994039535522,
+                  0.98615878820419312,
+                  -1.2271246241368772e-09,
+                  -0.1658036857843399,
                   0,
+                  -0.081279411911964417,
+                  0.87160152196884155,
+                  -0.48342972993850708,
                   0,
+                  0.14451466500759125,
+                  0.49021509289741516,
+                  0.85953754186630249,
                   0,
-                  0,
-                  0.8075486421585083,
-                  -0.58980107307434082,
-                  0,
-                  0,
-                  0.58980107307434082,
-                  0.8075486421585083,
-                  0,
-                  0.26351433992385864,
-                  1.864559531211853,
-                  2.4754905700683594,
+                  0.61711865663528442,
+                  0.71584856510162354,
+                  1.5777091979980469,
                   1
                 ],
                 "sceneTransform" : [

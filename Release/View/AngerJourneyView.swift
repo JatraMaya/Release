@@ -9,6 +9,7 @@ import SwiftUI
 
 struct AngerJourneyView: View {
     @State var angerJourneySelection: Int = 0
+    @StateObject var coreDataViewModel = CoreDataViewModel()
     var body: some View {
         VStack {
             Picker(selection: $angerJourneySelection, label: Text("Selection")) {
@@ -21,7 +22,7 @@ struct AngerJourneyView: View {
             Spacer()
 
                 if angerJourneySelection == 0{
-                    ListTypeView()
+                    ListTypeView( coreDataViewModel: coreDataViewModel)
                 } else if angerJourneySelection == 1 {
                     CalenderTypeView()
                 } else {

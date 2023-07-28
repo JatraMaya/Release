@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct EndMoodView: View {
+    @AppStorage("endMood") var endMood = ""
+    @Binding var showTranscript: Bool
     let moods: [MoodModel] = [
         MoodModel(image: "😊", text: "good", color: "Lime"),
         MoodModel(image: "😆", text: "happy", color: "Yellow"),
@@ -21,6 +23,9 @@ struct EndMoodView: View {
         MoodModel(image: "🤬", text: "Furious", color: "Red")]
 
     @State var selectedMood: String = ""
+    @StateObject var coreDataViewModel = CoreDataViewModel()
+    @StateObject private var speechRecognizer = SpeechRecognizer()
+    
     var body: some View {
         VStack{
 //            Spacer()
@@ -35,9 +40,10 @@ struct EndMoodView: View {
             ScrollView{
                 ForEach(moods, id:\.self) { mood in
                     Button{
-                        selectedMood = mood.image
+                        endMood = mood.image
+                        
                     }label: {
-                        MoodViewModel(mood: mood, moodIsSelected: selectedMood == mood.image ? true : false)
+                        MoodViewModel(mood: mood, moodIsSelected: endMood == mood.image ? true : false)
                             .foregroundColor(.black)
                             .padding([.top, .bottom], 5)
                     }
@@ -47,7 +53,7 @@ struct EndMoodView: View {
             }.frame(height: UIScreen.main.bounds.height - 455)
             Spacer()
             NavigationLink{
-                ARViewContainer()
+                SpeechTextView(content: speechRecognizer.transcript)
             }label: {
                 Text("Continue")
                     .font(.custom("Poppins-Medium", size: 17))
@@ -58,15 +64,15 @@ struct EndMoodView: View {
                     .padding(.bottom, 50)
 
             }
-            .disabled(selectedMood.isEmpty)
-            .opacity(selectedMood.isEmpty ? 0.6 : 1)
+            .disabled(endMood.isEmpty)
+            .opacity(endMood.isEmpty ? 0.6 : 1)
             Spacer()
         }
     }
 }
 
-struct EndMoodView_Previews: PreviewProvider {
-    static var previews: some View {
-        EndMoodView()
-    }
-}
+//struct EndMoodView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        EndMoodView()
+//    }
+//}

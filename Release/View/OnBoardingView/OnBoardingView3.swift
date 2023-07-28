@@ -9,6 +9,7 @@ import SwiftUI
 
 struct OnBoardingView3: View {
     @AppStorage("isOnboarding") var isOnboarding: Bool = false
+    
     var body: some View {
         ZStack{
             Color("Purple").ignoresSafeArea()
@@ -37,8 +38,8 @@ struct OnBoardingView3: View {
     }
 }
 
-struct OnBoardingView3_Previews: PreviewProvider {
-    static var previews: some View {
-        OnBoardingView3()
-    }
-}
+//struct OnBoardingView3_Previews: PreviewProvider {
+//    static var previews: some View {
+//        OnBoardingView3()
+//    }
+//}

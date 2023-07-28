@@ -9,6 +9,8 @@ import SwiftUI
 
 struct CalenderTypeView: View {
     @State var dates: [String] = ["2023-07-01", "2023-07-29"]
+    @State var selectedDate: Date? = nil
+    @State var isSheetPresented = false
 
     var body: some View {
         CalendarView(dates, mode: .basicCalendarMode)

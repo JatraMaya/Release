@@ -24,7 +24,16 @@
 	<string>tes mic</string>
 	<key>NSSpeechRecognitionUsageDescription</key>
 	<string>tes speech</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Poppins-Bold</string>
+		<string>Poppins-Medium</string>
+		<string>Poppins-Regular</string>
+		<string>Poppins-SemiBold</string>
+	</array>
 	<key>UILaunchScreen</key>
 	<string>LaunchScreen</string>
+	<key>UIUserInterfaceStyle</key>
+	<string>Light</string>
 </dict>
 </plist>

@@ -45,8 +45,8 @@ struct OnBoardingView2: View {
     }
 }
 
-struct OnBoardingView2_Previews: PreviewProvider {
-    static var previews: some View {
-        OnBoardingView2(value: .constant(1))
-    }
-}
+//struct OnBoardingView2_Previews: PreviewProvider {
+//    static var previews: some View {
+//        OnBoardingView2(value: .constant(1))
+//    }
+//}
