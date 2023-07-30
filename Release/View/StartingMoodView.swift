@@ -17,6 +17,8 @@ struct StartingMoodView: View {
     @AppStorage("startMood") var startMood = ""
     @StateObject var coreDataViewModel = CoreDataViewModel()
     
+
+    
     var body: some View {
         VStack{
             Spacer()
@@ -58,6 +60,9 @@ struct StartingMoodView: View {
             .disabled(startMood.isEmpty)
             .opacity(startMood.isEmpty ? 0.6 : 1)
         }
+        .navigationBarBackButtonHidden(true)
+       
+        
         
     }
 }
@@ -67,3 +72,27 @@ struct StartingMoodView: View {
 //        StartingMoodView()
 //    }
 //}
+
+extension View {
+    func navigationBarColor(_ color: UIColor) -> some View {
+        self.modifier(NavigationBarColorModifier(color: color))
+    }
+}
+
+// Buat modifier untuk mengatur warna bilah navigasi
+struct NavigationBarColorModifier: ViewModifier {
+    init(color: UIColor) {
+        let coloredAppearance = UINavigationBarAppearance()
+        coloredAppearance.configureWithTransparentBackground()
+        coloredAppearance.backgroundColor = color
+        coloredAppearance.titleTextAttributes = [.foregroundColor: UIColor.black]
+        coloredAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.black]
+
+        UINavigationBar.appearance().standardAppearance = coloredAppearance
+        UINavigationBar.appearance().scrollEdgeAppearance = coloredAppearance
+    }
+
+    func body(content: Content) -> some View {
+        content
+    }
+}

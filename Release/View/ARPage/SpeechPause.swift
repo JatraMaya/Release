@@ -13,9 +13,9 @@ struct SpeechPause: View {
     @State private var currentDate = Date()
     @State var isTimerRunning = false
     @Binding var showTranscript: Bool
-    @StateObject private var speechRecognizer = SpeechRecognizer()
+    var speechRecognizer: SpeechRecognizer
     @State private var isRecording: Bool = false
-    @State var text: String
+    @State var content: String
     @Binding var isListening: Bool
     
     @State var interval = TimeInterval()
@@ -105,14 +105,14 @@ struct SpeechPause: View {
                                     .frame(width: 110, height: 105)
                                     .padding()
                                 Circle()
-                                    .fill(isRecording ? Color("purples") : Color("Primary"))
+                                    .fill(!isRecording ? Color("purples") : Color("Primary"))
                                     .frame(width: 100, height: 100)
                                     .overlay(
                                         Circle()
                                             .stroke(Color.white, lineWidth: 2)
                                     )
 //                                Image("pause")
-                                (isRecording ? Image("pause") : Image("Voice"))
+                                (!isRecording ? Image("pause") : Image("Voice"))
                                     .resizable()
                                     .frame(width: 30, height: 35)
                                     .foregroundColor(Color.white)
@@ -120,17 +120,6 @@ struct SpeechPause: View {
                             }
                         }
                         .padding(.top, 50)
-                        
-//                        .fullScreenCover(isPresented: $showTranscript) {
-//
-////                            SpeechTextView(content: speechRecognizer.transcript)
-////                            test(transcript: speechRecognizer.transcript)
-////                            testSpeech(kalimat: speechRecognizer.transcript)
-//                            EndMoodView(showTranscript: $showTranscript)
-//
-//                              }
-
-                        
                     }
                     
                 )

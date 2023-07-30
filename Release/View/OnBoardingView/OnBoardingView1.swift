@@ -9,6 +9,8 @@ import SwiftUI
 
 struct OnBoardingView1: View {
     @Binding var value: Int
+    
+
     var body: some View {
         ZStack{
             Color("Purple").ignoresSafeArea()
@@ -24,7 +26,7 @@ struct OnBoardingView1: View {
                     .foregroundColor(Color.white)
                 Text("Let yourself say everything out loud.").font(.custom("Poppins", size: 18))
                     .foregroundColor(Color.white)
-                Image("Anger").resizable().frame(width: 330, height: 330).padding(.bottom, 72).padding(.top, 27)
+                Image("Anger").resizable().frame(width: 240, height: 287).padding(.bottom, 72).padding(.top, 27)
                 Button{
                     withAnimation {
                         value += 1

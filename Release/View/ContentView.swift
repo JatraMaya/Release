@@ -13,6 +13,7 @@ struct ContentView : View {
     @State var isSplashNotActive: Bool = false
     
 
+
     var body: some View {
         NavigationStack{
         ZStack{
@@ -31,7 +32,7 @@ struct ContentView : View {
             }
 
         }.onAppear{
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.55){
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3.50){
                 withAnimation{
                     self.isSplashNotActive = true
                 }
@@ -42,7 +43,7 @@ struct ContentView : View {
 
 struct ARViewContainer: UIViewRepresentable {
     @State private var tapLocation: CGPoint? = nil
-//    @Binding var modelConfirmedForPlacement: Model?
+    @State private var isARVisible = false
     
     func makeUIView(context: Context) -> ARView {
         
@@ -58,16 +59,17 @@ struct ARViewContainer: UIViewRepresentable {
         let arView = ARView(frame: .zero)
         
         // Load the "Box" scene from the "Experience" Reality File
-        let boxAnchor = try! Animate.loadBox()
+        let boxAnchor = try! Aset.loadBox()
         
         // Add the box anchor to the scene
         arView.scene.anchors.append(boxAnchor)
         
-        let tapGesture = UITapGestureRecognizer(target: context.coordinator, action: #selector(context.coordinator.handleTap(_:)))
-                arView.addGestureRecognizer(tapGesture)
+        if !isARVisible {
+            let tapGesture = UITapGestureRecognizer(target: context.coordinator, action: #selector(context.coordinator.handleTap(_:)))
+                    arView.addGestureRecognizer(tapGesture)
+        }
         
         return arView
-        
     }
     
     func updateUIView(_ uiView: ARView, context: Context) {
@@ -86,10 +88,17 @@ struct ARViewContainer: UIViewRepresentable {
 //          
 //        }
         
-        if let tapLocation = tapLocation {
+        if let tapLocation = tapLocation, !isARVisible {
                     // Update the frame/kotak position if tapLocation is available
                     // Implement your code to display the frame/kotak at the tapped location
                     // You can use the tapLocation CGPoint to position your frame/kotak
+            let sphere = MeshResource.generateSphere(radius: 0.1)
+                        let material = SimpleMaterial(color: .red, isMetallic: true)
+                        let sphereEntity = ModelEntity(mesh: sphere, materials: [material])
+            let anchorEntity = AnchorEntity(world: SIMD3<Float>(Float(tapLocation.x), Float(tapLocation.y), 0))
+                        anchorEntity.addChild(sphereEntity)
+                        uiView.scene.addAnchor(anchorEntity)
+            self.tapLocation = nil
                 }
     }
 
@@ -108,6 +117,7 @@ struct ARViewContainer: UIViewRepresentable {
            @objc func handleTap(_ gesture: UITapGestureRecognizer) {
                let location = gesture.location(in: gesture.view)
                parent.tapLocation = location
+               parent.isARVisible = true
                // Handle tap location here
                // Implement your code to place objects or perform actions when tapped
            }

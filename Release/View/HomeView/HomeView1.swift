@@ -13,16 +13,9 @@ struct HomeView1: View {
         VStack{
             Text("Hi, I am Mora!")
                 .font(.custom("Poppins-SemiBold", size: 20))
-            HStack{
-                Text("How are you feeling today,")
-                    .font(.custom("Poppins-Medium", size: 18))
-                Text(username)
-                    .font(.custom("Poppins-Medium", size: 18))
-                    .foregroundColor(Color("Primary"))
-                    .padding([.trailing, .leading], -5)
-                Text("?")
-                    .font(.custom("Poppins-Medium", size: 18))
-            }.padding(.top, 10)
+            Text("How are you feeling today,\(username)?")
+                .font(.custom("Poppins-Medium", size: 18))
+                .padding(.top, 10)
             Image("doggo").resizable().frame(width: 187, height: 240)
                 .padding(.top, 63)
         }

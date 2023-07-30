@@ -9,7 +9,8 @@ import SwiftUI
 
 struct SpeechTextView: View {
     @Environment(\.dismiss) var dismiss
-    //    @AppStorage("text") var kalimat = ""
+    @Environment(\.presentationMode) var presentationMode
+//    @AppStorage("text") var kalimat = ""
     @State private var currentDate = Date()
     @State var title: String = ""
     @State var content: String = ""
@@ -17,6 +18,7 @@ struct SpeechTextView: View {
     @State var isEdit: Bool = false
     @State var isCancel: Bool = false
     @State var isHomeViewActive: Bool = false
+    @State var isFinish: Bool = false
     
     @ObservedObject var noteViewModel = NoteViewModel()
     @StateObject var viewModel = CoreDataViewModel()
@@ -27,9 +29,14 @@ struct SpeechTextView: View {
         return dateFormatter.string(from: currentDate)
     }
     
+    @Binding var showTranscript: Bool
     @AppStorage("startMood") private var startMood: String = ""
     @AppStorage("endMood") private var endMood: String = ""
     @FocusState private var isTitleTextFieldFocused: Bool
+    @State private var originalTitle: String = ""
+    @State private var originalContent: String = ""
+   
+
     
     var body: some View {
         NavigationView {
@@ -39,46 +46,58 @@ struct SpeechTextView: View {
                         Rectangle()
                             .foregroundColor(Color("Primary"))
                             .cornerRadius(20)
-                            .frame(height: 560)
+                            .frame(height: 575)
                             .padding()
                         VStack {
-                            HStack {
-    //                            Spacer()
+                            HStack(spacing: 40) {
+                                Spacer() // Tambahkan spacer di sini
                                 ZStack {
                                     if title.isEmpty {
                                         Text("Untitle")
                                             .foregroundColor(.white)
                                             .font(.custom("Poppins-semiBold", size: 15))
-                                            .frame(maxWidth: .infinity, alignment: .center)
-                                            .padding(.leading, 50)
                                     }
                                     TextField("", text: $title)
                                         .font(.custom("Poppins-semiBold", size: 15))
+                                        .foregroundColor(Color.white)
+                                        .textFieldStyle(CenteredTextFieldStyle())
+                                        .autocorrectionDisabled(true)
                                 }
-                                Spacer()
                                 Text(formattedDate)
                                     .foregroundColor(Color.white)
                                     .font(.custom("Poppins-semiBold", size: 15))
-                            }.padding(.horizontal)
-                            TextField("", text: $content)
-                                .frame(width: 325, height: 500)
-                                .foregroundColor(Color.black)
-                                .background(Color.white)
-                                .cornerRadius(20)
-                                .multilineTextAlignment(.leading)
-                                .lineLimit(300, reservesSpace: true)
-                                .autocorrectionDisabled(true)
-                                .focused($isTitleTextFieldFocused)
-                        }.padding(.vertical)
+                            }
+                            .padding(.horizontal)
+                            .padding(.top, 20) // Mengatur padding atas
+                            
+                           
+                            ZStack(alignment: .topLeading) {
+                                TextField("", text: $content)
+                                    .font(.custom("Poppins-semiBold", size: 15))
+                                    .foregroundColor(Color.black)
+                                    .background(Color.white)
+                                    .textFieldStyle(LeadingTextFieldStyle())
+                                    .cornerRadius(20)
+                                    .padding()
+                                    .autocorrectionDisabled(true)
+                                    .lineLimit(300, reservesSpace: true)
+                            }
+                                
+
+                                
+                        }
+
                             .padding(.horizontal)
                             .onTapGesture {
                                 hideKeyboard()
                             }
                         
                     }
+                    .padding()
                     Spacer()
                     HStack {
                         Button {
+//                            title = originalTitle
                             isCancel.toggle()
                         } label: {
                             Text("Cancel")
@@ -88,7 +107,10 @@ struct SpeechTextView: View {
                         .padding(.trailing, 70)
                         .alert("Unsaved Changes", isPresented: $isCancel) {
                                     Button("Keep Editing") { }
-                            Button("Discard Changes", role: .destructive) {}
+                            Button("Discard Changes", role: .destructive) {
+                                title = originalTitle
+                                content = originalContent
+                            }
                                     
                                 } message: {
                                     Text("Are you sure you want to continue?")
@@ -128,15 +150,10 @@ struct SpeechTextView: View {
                                     }
                                     
                                     Spacer()
-                                    NavigationLink(
-                                                 destination: DashboardView(),
-                                                 isActive: $isHomeViewActive,
-                                                 label: {
+                                  
                                                      Button(action: {
-                                                         // Add any actions you want to perform before navigating to HomeView here
-                                                         
-                                                         // Set the state variable to activate the NavigationLink and navigate to HomeView
-                                                         isHomeViewActive = true
+                                                         isHomeViewActive.toggle()
+                                                       
                                                      }, label: {
                                                          Text("Finish")
                                                              .font(.custom("Poppins-Medium", size: 17))
@@ -146,14 +163,30 @@ struct SpeechTextView: View {
                                                      .background(Color("Primary"))
                                                      .cornerRadius(20)
                                                      .padding()
-                                                 }
-                                             )
+                                         
                                 }
+                                .onAppear {
+                                       if isAlert {
+                                           DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                                               isHomeViewActive = true
+                                               
+                                           }
+                                       }
+                                   }
                                 .presentationDetents([.medium])
                                 .presentationDragIndicator(.hidden)
                                 
                             }
+                        }.onDisappear {
+                            isAlert = false
                         }
+                        .background(
+                            NavigationLink(
+                                destination: DashboardView(),
+                                isActive: $isHomeViewActive,
+                                label: { EmptyView() }
+                            )
+                        )
                         
                     }
                     Spacer()
@@ -164,6 +197,8 @@ struct SpeechTextView: View {
                         isEdit.toggle()
                         if isEdit {
                                // Request focus on the title TextField
+                            originalTitle = title
+                            originalContent = content
                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
                                    isTitleTextFieldFocused = true
                                }
@@ -184,8 +219,10 @@ struct SpeechTextView: View {
                         }
                     })
                     .padding(.bottom, 16)
+                   
                 
             }
+            
             .onAppear {
                      // If isEdit is already true when the view appears,
                      // show the keyboard directly.
@@ -194,9 +231,11 @@ struct SpeechTextView: View {
                              UIApplication.shared.sendAction(#selector(UIResponder.becomeFirstResponder), to: nil, from: nil, for: nil)
                          }
                      }
+                
                  }
             
         }
+        .navigationBarBackButtonHidden(true)
     }
     
     func dateFromFormattedString(_ formattedString: String) -> Date? {
@@ -209,4 +248,54 @@ struct SpeechTextView: View {
         UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
 }
+
+
+struct CenteredTextFieldStyle: TextFieldStyle {
+    func _body(configuration: TextField<Self._Label>) -> some View {
+        configuration
+            .multilineTextAlignment(.center) // Mengatur pengetikan menjadi pusat
+            .frame(width: 100, height: 10) // Mengatur lebar dan tinggi TextField sesuai kebutuhan Anda
+            // Memberikan border pada TextField
+            .padding(.horizontal) // Memberikan padding horizontal untuk tampilan yang lebih baik
+    }
+}
+
+struct LeadingTextFieldStyle: TextFieldStyle {
+    func _body(configuration: TextField<Self._Label>) -> some View {
+        configuration
+            .multilineTextAlignment(.leading) // Mengatur pengetikan menjadi pusat
+            .frame(width: 325, height: 480) // Mengatur lebar dan tinggi TextField sesuai kebutuhan Anda
+            // Memberikan border pada TextField
+            .padding(.horizontal) // Memberikan padding horizontal untuk tampilan yang lebih baik
+            
+    }
+}
+
+
+struct MultilineTextField: UIViewRepresentable {
+    @Binding var content: String
+
+    func makeUIView(context: Context) -> UITextView {
+        let view = UITextView()
+        view.isScrollEnabled = true
+        view.isEditable = true
+        view.isUserInteractionEnabled = true
+        return view
+    }
+
+    func updateUIView(_ uiView: UITextView, context: Context) {
+        uiView.text = content
+    }
+}
+//
+//TextField("", text: $content)
+//    .frame(width: 325, height: 500)
+//    .foregroundColor(Color.black)
+//    .background(Color.white)
+//    .cornerRadius(20)
+//    .multilineTextAlignment(.leading)
+//    .lineLimit(300, reservesSpace: true)
+//    .autocorrectionDisabled(true)
+//    .focused($isTitleTextFieldFocused)
+
 

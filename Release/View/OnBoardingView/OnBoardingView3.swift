@@ -10,6 +10,7 @@ import SwiftUI
 struct OnBoardingView3: View {
     @AppStorage("isOnboarding") var isOnboarding: Bool = false
     
+
     var body: some View {
         ZStack{
             Color("Purple").ignoresSafeArea()
@@ -22,7 +23,8 @@ struct OnBoardingView3: View {
                     .foregroundColor(Color.white)
                 Text("Let you have a piece of mind.").font(.custom("Poppins", size: 18))
                     .foregroundColor(Color.white)
-                Image("Joy").resizable().frame(width: 330, height: 330).padding(.bottom, 72).padding(.top, 27)
+                    .padding(.top, 20)
+                Image("Joy").resizable().frame(width: 254, height: 258).padding(.bottom, 72).padding(.top, 27)
                 NavigationLink(destination: MyProfileVIew(), label: {
                     Text("Get Started").font(.custom("Poppins-Medium", size: 17))
                         .frame(width: 320, height: 55).background(.white).foregroundColor(Color("Primary")).cornerRadius(radius: 30, corners: .allCorners).shadow(color: .black, radius:3, x: 0, y: 3)
@@ -38,8 +40,8 @@ struct OnBoardingView3: View {
     }
 }
 
-//struct OnBoardingView3_Previews: PreviewProvider {
-//    static var previews: some View {
-//        OnBoardingView3()
-//    }
-//}
+struct OnBoardingView3_Previews: PreviewProvider {
+    static var previews: some View {
+        OnBoardingView3()
+    }
+}

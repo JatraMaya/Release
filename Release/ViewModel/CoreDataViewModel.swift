@@ -46,13 +46,13 @@ class CoreDataViewModel: ObservableObject {
         saveData()
     }
     
-    func updateJournal(entity: Journal) {
-        let title = entity.title ?? ""
-        let content = entity.content ?? ""
-        let mood = entity.mood ?? ""
-        let endMood = entity.endMood ?? ""
-        let date = entity.date ?? Date()
-    }
+//    func updateJournal(entity: Journal) {
+//        let title = entity.title ?? ""
+//        let content = entity.content ?? ""
+//        let mood = entity.mood ?? ""
+//        let endMood = entity.endMood ?? ""
+//        let date = entity.date ?? Date()
+//    }
 //    func addStartEmotion(mood: String) {
 //        let newMood = Journal(context: container.viewContext)
 //        newMood.mood = mood

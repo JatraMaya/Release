@@ -10,6 +10,8 @@ import SwiftUI
 struct DashboardView: View {
     @State var splashFinishAnimated = false
     @State var tabViewIndex = 0
+   
+
 
     @AppStorage("avatar") var avatarImage: String = "a"
     @AppStorage("username") var username: String = "Samsul"
@@ -102,9 +104,9 @@ struct DashboardView: View {
     }
 }
 
-//
-//struct DashboardView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        DashboardView()
-//    }
-//}
+
+struct DashboardView_Previews: PreviewProvider {
+    static var previews: some View {
+        DashboardView()
+    }
+}

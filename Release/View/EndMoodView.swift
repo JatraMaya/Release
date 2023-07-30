@@ -9,7 +9,7 @@ import SwiftUI
 
 struct EndMoodView: View {
     @AppStorage("endMood") var endMood = ""
-    @Binding var showTranscript: Bool
+    
     let moods: [MoodModel] = [
         MoodModel(image: "😊", text: "good", color: "Lime"),
         MoodModel(image: "😆", text: "happy", color: "Yellow"),
@@ -24,7 +24,8 @@ struct EndMoodView: View {
 
     @State var selectedMood: String = ""
     @StateObject var coreDataViewModel = CoreDataViewModel()
-    @StateObject private var speechRecognizer = SpeechRecognizer()
+    var speechRecognizer: SpeechRecognizer
+    @State var showTranscript: Bool
     
     var body: some View {
         VStack{
@@ -53,7 +54,7 @@ struct EndMoodView: View {
             }.frame(height: UIScreen.main.bounds.height - 455)
             Spacer()
             NavigationLink{
-                SpeechTextView(content: speechRecognizer.transcript)
+                SpeechTextView(content: speechRecognizer.transcript, showTranscript: $showTranscript)
             }label: {
                 Text("Continue")
                     .font(.custom("Poppins-Medium", size: 17))
@@ -68,6 +69,7 @@ struct EndMoodView: View {
             .opacity(endMood.isEmpty ? 0.6 : 1)
             Spacer()
         }
+        .navigationBarBackButtonHidden(true)
     }
 }
 

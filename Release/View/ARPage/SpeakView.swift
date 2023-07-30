@@ -15,10 +15,10 @@ struct SpeakView: View {
     @State private var isPlacementEnabled = false
 //    @State private var selectedModel: Model?
 //    @State private var modelConfirmedForPlacement: Model?
-    
-    @StateObject private var speechRecognizer = SpeechRecognizer()
     @State private var isRecording: Bool = false
     @State private var showTranscript: Bool = false
+
+
 //    private var models: [Model] = {
 //        let fileManager = FileManager.default
 //
@@ -36,17 +36,22 @@ struct SpeakView: View {
 //
 //    }()
     var body: some View {
-        ZStack(alignment: .bottom) {
-            ARViewContainer().ignoresSafeArea(.all)
-//            if self.isPlacementEnabled {
-//                PlacementBodyAR(isPlacementEnabled: self.$isPlacementEnabled, selectedModel: self.$selectedModel)
-//            }else {
+        NavigationView {
+            ZStack(alignment: .bottom) {
+                ARViewContainer().ignoresSafeArea(.all)
+    //            if self.isPlacementEnabled {
+    //                PlacementBodyAR(isPlacementEnabled: self.$isPlacementEnabled, selectedModel: self.$selectedModel)
+    //            }else {
                 ModelPickerView()
-//                ModelPickerView(isPlacementEnabled: self.$isPlacementEnabled, selectedModel: self.$selectedModel, modelConfirmeForPlacement: $modelConfirmedForPlacement, models: self.models)
-                
-            }
+    //                ModelPickerView(isPlacementEnabled: self.$isPlacementEnabled, selectedModel: self.$selectedModel, modelConfirmeForPlacement: $modelConfirmedForPlacement, models: self.models)
+                    
+                }
+        }.navigationBackButton(color: .white)
+       
+
         }
     }
+
 
 struct PlacementBodyAR: View {
 //    @Binding var isPlacementEnabled: Bool
@@ -54,12 +59,15 @@ struct PlacementBodyAR: View {
     @State private var isMic: Bool = false
     @State private var isListening = false
     @State var showTranscript: Bool = false
+    @State var isHome: Bool = false
+    @StateObject private var speechRecognizer = SpeechRecognizer()
     
+
     var body: some View {
         if isMic {
             if !isListening {
                 TextARThree()
-                    .padding(.bottom, 600)
+                    .padding(.bottom, 705)
             }
                 Button {
                     isListening.toggle()
@@ -85,19 +93,22 @@ struct PlacementBodyAR: View {
                     if #available(iOS 16.0, *) {
                         Spacer()
                         Spacer()
-                        SpeechPause(showTranscript: $showTranscript, text: "", isListening: $isListening)
+                        SpeechPause(showTranscript: $showTranscript, speechRecognizer: speechRecognizer, content: "", isListening: $isListening)
                             .presentationDragIndicator(.hidden)
                             .presentationDetents([.medium])
                         
                     }
                 }
+                .padding(.bottom, 30)
                 .navigationDestination(isPresented: $showTranscript) {
-                    EndMoodView(showTranscript: $showTranscript)
+                   EndMoodView(speechRecognizer: speechRecognizer, showTranscript: showTranscript)
                 }
+                
+            
             
         } else {
             TextARTwo()
-                .padding(.bottom, 600)
+                .padding(.bottom, 710)
             HStack {
                     Button {
                         print("DEBUG: Cancel model placement")
@@ -133,6 +144,7 @@ struct PlacementBodyAR: View {
                     }
             }
             .padding(.trailing, 70)
+            .padding(.bottom, 30)
 
         }
         
@@ -149,11 +161,12 @@ struct PlacementBodyAR: View {
 
 struct ModelPickerView: View {
     @State private var isButtonVisible = true
+    
     var body: some View {
         if isButtonVisible {
             ZStack {
                     TextAR()
-                         .padding(.bottom, 500)
+                         .padding(.bottom, 605)
                
                     Button {
                         print("DEBUG: selected model with name:")
@@ -193,7 +206,7 @@ struct TextAR: View {
                 .font(Font.custom("Poppins", size: 20).weight(.semibold))
                 .foregroundColor(Color.white)
             ZStack {
-                animationRelease()
+                AnimationRelease()
                 Image("ScanRoom")
                     .resizable()
                     .frame(width: 40, height: 78)
@@ -207,7 +220,7 @@ struct TextARTwo: View {
     var body: some View {
         VStack(spacing: 20) {
             Text("Scan Room")
-                .font(Font.custom("Poppins-Black", size: 20))
+                .font(Font.custom("Poppins", size: 20).weight(.semibold))
                 .foregroundColor(Color.white)
                 .fontWeight(.bold)
             Rectangle()
@@ -232,7 +245,7 @@ struct TextARThree: View {
     var body: some View {
         VStack(spacing: 20) {
             Text("Start Talking")
-                .font(Font.custom("Poppins", size: 17).weight(.semibold))
+                .font(Font.custom("Poppins", size: 20).weight(.semibold))
                 .foregroundColor(Color.white)
             Rectangle()
                 .fill(Color("Primary").opacity(0.5))
@@ -249,27 +262,27 @@ struct TextARThree: View {
     }
 }
 
-struct animationRelease: View {
+struct AnimationRelease: View {
     @State private var isAnimating = false
+    
     var body: some View {
         ZStack {
             Circle()
                 .fill(Color("Primary").opacity(0.5))
                 .frame(width: 100, height: 100)
                 .scaleEffect(isAnimating ? 1.5 : 1.0)
-                .animation(Animation.easeInOut(duration: 1.0).repeatForever(autoreverses: true))
+                .animation(Animation.easeInOut(duration: 1.0))
             
             Circle()
                 .fill(Color("Primary"))
                 .frame(width: 70, height: 70)
                 .scaleEffect(isAnimating ? 1.3 : 1.0)
-                .animation(Animation.easeInOut(duration: 1.5).repeatForever(autoreverses: true))
+                .animation(Animation.easeInOut(duration: 1.5))
         }
-        .onAppear {
-            isAnimating = true
         }
     }
-}
+
+
 
 struct Note: Identifiable {
     let id = UUID()
@@ -278,8 +291,41 @@ struct Note: Identifiable {
 }
 
 
-struct SpeakView_Previews: PreviewProvider {
-    static var previews: some View {
-        SpeakView()
+//struct SpeakView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        SpeakView()
+//    }
+//}
+
+
+struct NavigationBackButton: ViewModifier {
+
+    @Environment(\.presentationMode) var presentationMode
+    var color: UIColor
+    var text: String?
+
+    func body(content: Content) -> some View {
+        return content
+            .navigationBarBackButtonHidden(true)
+            .navigationBarItems(
+                leading: Button(action: {  presentationMode.wrappedValue.dismiss() }, label: {
+                    HStack(spacing: 2) {
+                        Image(systemName: "chevron.backward")
+                            .foregroundColor(Color(color))
+                        Text("Back")
+                            .foregroundColor(Color(color))
+
+                        if let text = text {
+                            Text(text)
+                                .foregroundColor(Color(color))
+                        }
+                    }
+                })
+            )
+    }
+}
+extension View {
+    func navigationBackButton(color: UIColor, text: String? = nil) -> some View {
+        modifier(NavigationBackButton(color: color, text: text))
     }
 }

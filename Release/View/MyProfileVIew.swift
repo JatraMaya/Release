@@ -19,6 +19,7 @@ struct MyProfileVIew: View {
     @AppStorage("username") var username: String = ""
     
 
+
     var body: some View {
         VStack{
             Text("My Profile").font(.custom("Poppins-SemiBold", size: 17)).padding(.top, 15)

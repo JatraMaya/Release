@@ -9,7 +9,6 @@ import SwiftUI
 import CoreData
 
 struct ListTypeView: View {
-//    var journal: [JournalModel] = []
     var journal: [JournalModel] = [
         JournalModel(moodBefore: "😠", moodAfter: "🤬", content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", date: Date()),
         JournalModel(moodBefore: "😔", moodAfter: "😡", content: "hahahahahax", date: Date()), JournalModel(moodBefore: "😍", moodAfter: "🙂", content: "hahahahaha", date: Date()),
@@ -21,14 +20,6 @@ struct ListTypeView: View {
     var body: some View {
         VStack{
             ScrollView{
-//                if journal.count == 0 {
-//                    ListTypeViewEmpty()
-//                }else {
-//                    ForEach(Array(journal.enumerated()), id: \.element) { i, j in
-//                        JournalViewModel(moodBefore: j.moodBefore, moodAfter: j.moodAfter, content: j.content, index: i, date: j.date)
-//                            .padding(.trailing, 10)
-//                    }
-//                }
                 
                 if coreDataViewModel.savedEntities.isEmpty {
                     ListTypeViewEmpty()
@@ -37,10 +28,6 @@ struct ListTypeView: View {
                         JournalViewModel(moodBefore: j.mood ?? "", moodAfter: j.endMood ?? "", content: j.content ?? "", index: i, date: j.date ?? Date())
                             .padding(.trailing, 10)
                     }
-//                    ForEach(Array(coreDataViewModel.savedEntities.enumerated()) , id: \.element) { i, j in
-//                        JournalViewModel(moodBefore: j.mood ?? "", moodAfter: j.endMood ?? "", content: j.content ?? "", index: i, date: j.date ?? Date())
-//                            .padding(.trailing, 10)
-//                    }
                 }
             }.scrollIndicators(.hidden)
         }.onAppear {
