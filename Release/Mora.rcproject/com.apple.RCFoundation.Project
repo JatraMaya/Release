@@ -32,24 +32,24 @@
                                       "configurationBox" : {
                                         "configuration" : {
                                           "angularCoefficient" : 1,
-                                          "duration" : 2,
+                                          "duration" : 10,
                                           "isTransformInitKeyPath" : true,
                                           "linearCoefficient" : 1,
                                           "location" : [
                                             0,
                                             0.008500000461935997,
-                                            0
+                                            -3.7252902984619141e-09
                                           ],
                                           "moveEase" : "none",
                                           "orientation" : [
+                                            -0.043619386851787567,
                                             0,
                                             0,
-                                            0,
-                                            1
+                                            0.99904823303222656
                                           ],
                                           "respectPhysics" : false,
                                           "target" : [
-                                            "2CDCAF4D-F7BD-4898-97A7-5CC56D902419"
+                                            "5D10459F-429B-425C-837A-0817F9157C81"
                                           ]
                                         },
                                         "name" : {
@@ -80,24 +80,24 @@
                                       "configurationBox" : {
                                         "configuration" : {
                                           "angularCoefficient" : 1,
-                                          "duration" : 0.5,
+                                          "duration" : 0.69999998807907104,
                                           "isTransformInitKeyPath" : true,
                                           "linearCoefficient" : 1,
                                           "location" : [
                                             0,
                                             0.008500000461935997,
-                                            0
+                                            -3.7252902984619141e-09
                                           ],
                                           "moveEase" : "easeInOut",
                                           "orientation" : [
-                                            0.087155744433403015,
+                                            0.043619386851787567,
                                             0,
                                             0,
-                                            0.99619472026824951
+                                            0.99904823303222656
                                           ],
                                           "respectPhysics" : false,
                                           "target" : [
-                                            "2CDCAF4D-F7BD-4898-97A7-5CC56D902419"
+                                            "5D10459F-429B-425C-837A-0817F9157C81"
                                           ]
                                         },
                                         "name" : {
@@ -128,24 +128,24 @@
                                       "configurationBox" : {
                                         "configuration" : {
                                           "angularCoefficient" : 1,
-                                          "duration" : 0.5,
+                                          "duration" : 0.60000002384185791,
                                           "isTransformInitKeyPath" : true,
                                           "linearCoefficient" : 1,
                                           "location" : [
                                             0,
                                             0.008500000461935997,
-                                            0
+                                            -3.7252902984619141e-09
                                           ],
                                           "moveEase" : "easeInOut",
                                           "orientation" : [
+                                            -0.043619386851787567,
                                             0,
                                             0,
-                                            0,
-                                            1
+                                            0.99904823303222656
                                           ],
                                           "respectPhysics" : false,
                                           "target" : [
-                                            "2CDCAF4D-F7BD-4898-97A7-5CC56D902419"
+                                            "5D10459F-429B-425C-837A-0817F9157C81"
                                           ]
                                         },
                                         "name" : {
@@ -176,24 +176,24 @@
                                       "configurationBox" : {
                                         "configuration" : {
                                           "angularCoefficient" : 1,
-                                          "duration" : 0.5,
+                                          "duration" : 0.69999998807907104,
                                           "isTransformInitKeyPath" : true,
                                           "linearCoefficient" : 1,
                                           "location" : [
                                             0,
                                             0.008500000461935997,
-                                            0
+                                            -3.7252902984619141e-09
                                           ],
                                           "moveEase" : "easeInOut",
                                           "orientation" : [
-                                            0.13052618503570557,
+                                            0.043619386851787567,
                                             0,
                                             0,
-                                            0.99144488573074341
+                                            0.99904823303222656
                                           ],
                                           "respectPhysics" : false,
                                           "target" : [
-                                            "2CDCAF4D-F7BD-4898-97A7-5CC56D902419"
+                                            "5D10459F-429B-425C-837A-0817F9157C81"
                                           ]
                                         },
                                         "name" : {
@@ -224,24 +224,24 @@
                                       "configurationBox" : {
                                         "configuration" : {
                                           "angularCoefficient" : 1,
-                                          "duration" : 0.5,
+                                          "duration" : 0.60000002384185791,
                                           "isTransformInitKeyPath" : true,
                                           "linearCoefficient" : 1,
                                           "location" : [
                                             0,
                                             0.008500000461935997,
-                                            0
+                                            -3.7252902984619141e-09
                                           ],
                                           "moveEase" : "easeInOut",
                                           "orientation" : [
+                                            -0.043619386851787567,
                                             0,
                                             0,
-                                            0,
-                                            1
+                                            0.99904823303222656
                                           ],
                                           "respectPhysics" : false,
                                           "target" : [
-                                            "2CDCAF4D-F7BD-4898-97A7-5CC56D902419"
+                                            "5D10459F-429B-425C-837A-0817F9157C81"
                                           ]
                                         },
                                         "name" : {
@@ -249,14 +249,14 @@
                                           "type" : "transform"
                                         }
                                       },
-                                      "identifier" : "B0E6AE22-437D-4CB5-B2DA-84C10702CD35",
+                                      "identifier" : "D529D7DB-ABA9-4830-BF2F-463C4A5A6B2B",
                                       "isEnabled" : true
                                     }
                                   ],
                                   "__version" : 1
                                 }
                               ],
-                              "identifier" : "8924B5CF-3F74-41D1-A56A-E282C70EBCA0",
+                              "identifier" : "32840E6C-6FAA-4467-9B78-C01F0D2FCA47",
                               "isEnabled" : true
                             }
                           ],
@@ -272,24 +272,24 @@
                                       "configurationBox" : {
                                         "configuration" : {
                                           "angularCoefficient" : 1,
-                                          "duration" : 3,
+                                          "duration" : 10,
                                           "isTransformInitKeyPath" : true,
                                           "linearCoefficient" : 1,
                                           "location" : [
                                             0,
                                             0.008500000461935997,
-                                            0
+                                            -3.7252902984619141e-09
                                           ],
                                           "moveEase" : "easeInOut",
                                           "orientation" : [
-                                            0,
-                                            0,
-                                            0,
-                                            1
+                                            0.017452403903007507,
+                                            -5.0862894625247623e-13,
+                                            -2.9139329837946093e-11,
+                                            0.99984771013259888
                                           ],
                                           "respectPhysics" : false,
                                           "target" : [
-                                            "2CDCAF4D-F7BD-4898-97A7-5CC56D902419"
+                                            "5D10459F-429B-425C-837A-0817F9157C81"
                                           ]
                                         },
                                         "name" : {
@@ -361,112 +361,7 @@
                   "7F5F1ADC-E5E4-4EF5-A5B5-FC43B071FFA5" : null,
                   "15C1E5D2-E410-48AC-B936-3BB313403B6B" : null,
                   "65CB0721-8D23-43A0-AAA5-8846D67D02B8" : null,
-                  "80BAF0CA-F3A9-437F-8C6A-21A89331425B" : {
-                    "overrides" : {
-                      "children" : {
-                        "USDScene" : {
-                          "overrides" : {
-                            "arguments" : [
-                              [
-                                "includeSceneScaling",
-                                {
-                                  "typeName" : "Bool",
-                                  "value" : false
-                                }
-                              ],
-                              [
-                                "subpath",
-                                {
-                                  "typeName" : "String",
-                                  "value" : ""
-                                }
-                              ],
-                              [
-                                "url",
-                                {
-                                  "typeName" : "String",
-                                  "value" : "model:305af09291d498e60bcadd3a32c6f43a\/Mora%20kaki.usdz"
-                                }
-                              ],
-                              [
-                                "withDescendants",
-                                {
-                                  "typeName" : "Bool",
-                                  "value" : true
-                                }
-                              ]
-                            ],
-                            "factory" : {
-                              "identifier" : "com.apple.af.FileImportAssetFactory",
-                              "version" : "0.0"
-                            },
-                            "runtimeAttributes" : [
-                              [
-                                "RuntimeIdentifier",
-                                {
-                                  "typeName" : "UUID",
-                                  "value" : "C58C7487-3724-4171-9C42-CF6E6AFD4900"
-                                }
-                              ]
-                            ]
-                          },
-                          "transform" : {
-                            "matrix" : [
-                              0.0099999997764825821,
-                              0,
-                              0,
-                              0,
-                              0,
-                              0.0099999997764825821,
-                              0,
-                              0,
-                              0,
-                              0,
-                              0.0099999997764825821,
-                              0,
-                              0,
-                              0,
-                              0,
-                              1
-                            ]
-                          }
-                        }
-                      },
-                      "factory" : {
-                        "identifier" : "com.apple.af.Group",
-                        "version" : "0.0"
-                      },
-                      "runtimeAttributes" : [
-                        [
-                          "RuntimeIdentifier",
-                          {
-                            "typeName" : "UUID",
-                            "value" : "DC8274B7-1ED0-450B-9B9B-649A8BA1434A"
-                          }
-                        ]
-                      ]
-                    },
-                    "transform" : {
-                      "matrix" : [
-                        1,
-                        0,
-                        0,
-                        0,
-                        0,
-                        1,
-                        0,
-                        0,
-                        0,
-                        0,
-                        1,
-                        0,
-                        0,
-                        0.007647491991519928,
-                        0,
-                        1
-                      ]
-                    }
-                  },
+                  "80BAF0CA-F3A9-437F-8C6A-21A89331425B" : null,
                   "182F7DA3-907B-4A04-B240-D75EE609DAA7" : null,
                   "185D0FCE-5677-4589-B86E-2622C47BE7F0" : null,
                   "632E476F-1E55-4E30-9723-1C51DD2E8B89" : null,
@@ -510,10 +405,7 @@
                       ]
                     }
                   },
-                  "0105349C-13FD-49EA-BFF4-83C1BC8E6A72" : null,
-                  "472499F9-7404-4D43-829E-0419C9171E6F" : null,
-                  "64155653-5640-4841-A287-C1437261AE8C" : null,
-                  "A2BC49B9-CE3A-422B-A2EB-D975FABDEA75" : {
+                  "97688B2C-6AA7-479A-9891-6476B70722C8" : {
                     "overrides" : {
                       "children" : {
                         "USDScene" : {
@@ -537,7 +429,7 @@
                                 "url",
                                 {
                                   "typeName" : "String",
-                                  "value" : "model:f78df835dd8293966afa849b89040757\/Mora%20badan.usdz"
+                                  "value" : "model:22138e4a961baee6e7c847c1e8a41de9\/badan%20mora.usdz"
                                 }
                               ],
                               [
@@ -557,7 +449,7 @@
                                 "RuntimeIdentifier",
                                 {
                                   "typeName" : "UUID",
-                                  "value" : "4C7F8106-CD43-462D-856C-E00F3BFC110B"
+                                  "value" : "CD08F51E-6C6C-48FD-9E76-1170FE426C6C"
                                 }
                               ]
                             ]
@@ -593,7 +485,7 @@
                           "RuntimeIdentifier",
                           {
                             "typeName" : "UUID",
-                            "value" : "2CDCAF4D-F7BD-4898-97A7-5CC56D902419"
+                            "value" : "5D10459F-429B-425C-837A-0817F9157C81"
                           }
                         ]
                       ]
@@ -612,15 +504,125 @@
                         0,
                         1,
                         0,
-                        0.0018279887735843658,
-                        0.0085370242595672607,
+                        0,
+                        0.008500000461935997,
+                        -3.7252902984619141e-09,
+                        1
+                      ]
+                    }
+                  },
+                  "0105349C-13FD-49EA-BFF4-83C1BC8E6A72" : null,
+                  "472499F9-7404-4D43-829E-0419C9171E6F" : null,
+                  "64155653-5640-4841-A287-C1437261AE8C" : null,
+                  "A2BC49B9-CE3A-422B-A2EB-D975FABDEA75" : null,
+                  "B91C7CA3-4AB1-4253-9A84-07383168A8A8" : null,
+                  "C3F0704D-080F-49EA-9041-7166BCE2ED9F" : null,
+                  "C2388195-D275-4DEF-A9D9-758680CECE1A" : {
+                    "overrides" : {
+                      "children" : {
+                        "USDScene" : {
+                          "overrides" : {
+                            "arguments" : [
+                              [
+                                "includeSceneScaling",
+                                {
+                                  "typeName" : "Bool",
+                                  "value" : false
+                                }
+                              ],
+                              [
+                                "subpath",
+                                {
+                                  "typeName" : "String",
+                                  "value" : ""
+                                }
+                              ],
+                              [
+                                "url",
+                                {
+                                  "typeName" : "String",
+                                  "value" : "model:33f3f1356798b1437c3392acff0d401b\/kaki%20mora.usdz"
+                                }
+                              ],
+                              [
+                                "withDescendants",
+                                {
+                                  "typeName" : "Bool",
+                                  "value" : true
+                                }
+                              ]
+                            ],
+                            "factory" : {
+                              "identifier" : "com.apple.af.FileImportAssetFactory",
+                              "version" : "0.0"
+                            },
+                            "runtimeAttributes" : [
+                              [
+                                "RuntimeIdentifier",
+                                {
+                                  "typeName" : "UUID",
+                                  "value" : "4B9D4B0E-EA64-4333-8FBF-AA4FCE100118"
+                                }
+                              ]
+                            ]
+                          },
+                          "transform" : {
+                            "matrix" : [
+                              0.0099999997764825821,
+                              0,
+                              0,
+                              0,
+                              0,
+                              0.0099999997764825821,
+                              0,
+                              0,
+                              0,
+                              0,
+                              0.0099999997764825821,
+                              0,
+                              0,
+                              0,
+                              0,
+                              1
+                            ]
+                          }
+                        }
+                      },
+                      "factory" : {
+                        "identifier" : "com.apple.af.Group",
+                        "version" : "0.0"
+                      },
+                      "runtimeAttributes" : [
+                        [
+                          "RuntimeIdentifier",
+                          {
+                            "typeName" : "UUID",
+                            "value" : "5550D3D3-D324-45B4-919D-2E9B873323F7"
+                          }
+                        ]
+                      ]
+                    },
+                    "transform" : {
+                      "matrix" : [
+                        1,
+                        0,
+                        0,
+                        0,
+                        0,
+                        1,
+                        0,
+                        0,
+                        0,
+                        0,
+                        1,
+                        0,
+                        0,
+                        0,
                         0,
                         1
                       ]
                     }
                   },
-                  "B91C7CA3-4AB1-4253-9A84-07383168A8A8" : null,
-                  "C3F0704D-080F-49EA-9041-7166BCE2ED9F" : null,
                   "E0E6B9FB-173B-4C2D-BFBD-623667CA622B" : null,
                   "E9BBEB4F-7E8C-477D-BF9F-066873E58BF6" : null,
                   "E6022080-9E78-407B-A3A3-B9D8F1DFEAB1" : null,
@@ -641,21 +643,21 @@
               "title" : "Box",
               "viewTransform" : {
                 "cameraTransform" : [
-                  0.99105894565582275,
-                  1.650521719298581e-09,
-                  -0.13342492282390594,
+                  0.8804250955581665,
+                  2.3232188395283515e-10,
+                  0.4741852879524231,
                   0,
-                  -0.016332603991031647,
-                  0.99247956275939941,
-                  -0.12131603807210922,
+                  0.12423337996006012,
+                  0.96506983041763306,
+                  -0.23066529631614685,
                   0,
-                  0.13242153823375702,
-                  0.12241066247224808,
-                  0.98360568284988403,
+                  -0.45762181282043457,
+                  0.26199337840080261,
+                  0.84967154264450073,
                   0,
-                  0.46057677268981934,
-                  0.16642627120018005,
-                  1.1673072576522827,
+                  -0.32136023044586182,
+                  0.26889204978942871,
+                  0.71686363220214844,
                   1
                 ],
                 "sceneTransform" : [

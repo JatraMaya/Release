@@ -59,7 +59,7 @@ struct ARViewContainer: UIViewRepresentable {
         let arView = ARView(frame: .zero)
         
         // Load the "Box" scene from the "Experience" Reality File
-        let boxAnchor = try! Aset.loadBox()
+        let boxAnchor = try! Mora.loadBox()
         
         // Add the box anchor to the scene
         arView.scene.anchors.append(boxAnchor)

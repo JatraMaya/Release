@@ -38,7 +38,7 @@ struct SpeechPause: View {
     var body: some View {
         NavigationStack {
             Rectangle()
-            .foregroundColor(Color.white)
+                .foregroundColor(Color.white)
                 .cornerRadius(20)
                 .frame(height: 356)
                 .frame(maxWidth: .infinity)
@@ -69,7 +69,7 @@ struct SpeechPause: View {
                             
                             Spacer()
                             Button {
-                               isListening = false
+                                isListening = false
                                 showTranscript.toggle()
                                 
                             } label: {
@@ -86,18 +86,20 @@ struct SpeechPause: View {
                         }
                         .padding()
                         
-                   if isRecording {
-                       soundView()
-                   }
+                        if isRecording {
+                            soundView()
+                        }
+                        
                         Button {
                             if !isRecording {
                                 speechRecognizer.transcribe()
-                            }else {
+                            } else {
                                 speechRecognizer.stopTranscribing()
                             }
                             isRecording.toggle()
+                            
                             print("mulai record")
-                           
+                            
                         } label: {
                             ZStack {
                                 Circle()
@@ -105,26 +107,32 @@ struct SpeechPause: View {
                                     .frame(width: 110, height: 105)
                                     .padding()
                                 Circle()
-                                    .fill(!isRecording ? Color("purples") : Color("Primary"))
+                                    .fill(isRecording ? Color("purples") : Color("Primary"))
                                     .frame(width: 100, height: 100)
                                     .overlay(
                                         Circle()
                                             .stroke(Color.white, lineWidth: 2)
                                     )
-//                                Image("pause")
-                                (!isRecording ? Image("pause") : Image("Voice"))
+                                //                                Image("pause")
+                                (isRecording ? Image("pause") : Image("Voice"))
                                     .resizable()
                                     .frame(width: 30, height: 35)
                                     .foregroundColor(Color.white)
                                     .padding(20)
                             }
                         }
+                        
                         .padding(.top, 50)
                     }
                     
                 )
+                .onAppear {
+                    if isListening {
+                        speechRecognizer.transcribe()
+                    }
+                }
         }
-            
+        
         
     }
     

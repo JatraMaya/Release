@@ -68,21 +68,22 @@ struct SpeechTextView: View {
                                     .font(.custom("Poppins-semiBold", size: 15))
                             }
                             .padding(.horizontal)
-                            .padding(.top, 20) // Mengatur padding atas
+                            .padding(.top, 10)
+                           
                             
                            
-                            ZStack(alignment: .topLeading) {
-                                TextField("", text: $content)
-                                    .font(.custom("Poppins-semiBold", size: 15))
-                                    .foregroundColor(Color.black)
-                                    .background(Color.white)
-                                    .textFieldStyle(LeadingTextFieldStyle())
-                                    .cornerRadius(20)
-                                    .padding()
-                                    .autocorrectionDisabled(true)
-                                    .lineLimit(300, reservesSpace: true)
-                            }
                                 
+                            TextField("", text: $content)
+                                .frame(width: 325, height: 500)
+                                .foregroundColor(Color.black)
+                                .background(Color.white)
+                                .cornerRadius(20)
+                                .multilineTextAlignment(.leading)
+                                .lineLimit(300, reservesSpace: true)
+                                .autocorrectionDisabled(true)
+                                .focused($isTitleTextFieldFocused)
+                                .padding()
+                                  
 
                                 
                         }
@@ -190,7 +191,8 @@ struct SpeechTextView: View {
                         
                     }
                     Spacer()
-                }  .navigationBarTitle(Text("Anger Record").font(.custom("Poppins-Medium", size: 17)))
+                }
+                .navigationBarTitle(Text("Anger Record").font(.custom("Poppins-Medium", size: 17)))
                     .navigationBarTitleDisplayMode(.inline)
                     .navigationBarItems(trailing: Button(action: {
                         // Kode untuk menangani aksi tombol di sini
