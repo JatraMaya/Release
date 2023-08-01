@@ -88,21 +88,25 @@ struct PlacementBodyAR: View {
                             .cornerRadius(30)
                             .padding(20)
                     }
-                
-                }.sheet(isPresented: $isListening) {
-                    if #available(iOS 16.0, *) {
-                        Spacer()
-                        Spacer()
-                        SpeechPause(showTranscript: $showTranscript, speechRecognizer: speechRecognizer, content: "", isListening: $isListening)
-                            .presentationDragIndicator(.hidden)
-                            .presentationDetents([.medium])
+                }
+                .padding(.bottom)
+                    //                }.sheet(isPresented: $isListening) {
+                    //                    if #available(iOS 16.0, *) {
+                    //                        Spacer()
+                    //                        Spacer()
+                    //                        SpeechPause(showTranscript: $showTranscript, speechRecognizer: speechRecognizer, content: "", isListening: $isListening)
+                    //                            .presentationDragIndicator(.hidden)
+                    //                            .presentationDetents([.medium])
+                    //
+                    //                    }
+                    //                }
+                    
+                    SpeechPause(showTranscript: $showTranscript, speechRecognizer: speechRecognizer, content: "", isListening: $isListening)
+               
                         
-                    }
-                }
-                .padding(.bottom, 30)
-                .navigationDestination(isPresented: $showTranscript) {
-                   EndMoodView(speechRecognizer: speechRecognizer, showTranscript: showTranscript)
-                }
+                        .navigationDestination(isPresented: $showTranscript) {
+                            EndMoodView(speechRecognizer: speechRecognizer, showTranscript: showTranscript)
+                        }
                 
             
             

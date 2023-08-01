@@ -35,102 +35,110 @@ struct SpeechPause: View {
         return formatter
     }()
     
+    
     var body: some View {
         NavigationStack {
-            Rectangle()
-                .foregroundColor(Color.white)
-                .cornerRadius(20)
-                .frame(height: 356)
-                .frame(maxWidth: .infinity)
-                .overlay(
-                    VStack(spacing: 20) {
-                        HStack {
-                            Spacer()
-                            VStack {
-                                Text("\(formattedDate)")
-                                    .foregroundColor(.black)
-                                    .bold()
-                                    .padding(.leading, 65)
-                                Text(formatter.string(from: interval) ?? "")
-                                    .font(Font.system(.caption))
-                                    .onReceive(timer) { _ in
-                                        if self.isRecording {
-                                            interval = Date().timeIntervalSince(currentDate)
-                                        }
+            ZStack(alignment: .bottom) {
+                if isListening {
+                    Rectangle()
+                        .foregroundColor(Color.white)
+                        .cornerRadius(20)
+                        .frame(height: 356)
+                        .frame(maxWidth: .infinity)
+                        .overlay(
+                            VStack(spacing: 20) {
+                                HStack {
+                                    Spacer()
+                                    VStack {
+                                        Text("\(formattedDate)")
+                                            .foregroundColor(.black)
+                                            .bold()
+                                            .padding(.leading, 65)
+                                        Text(formatter.string(from: interval) ?? "")
+                                            .font(Font.system(.caption))
+                                            .onReceive(timer) { _ in
+                                                if self.isRecording {
+                                                    interval = Date().timeIntervalSince(currentDate)
+                                                }
+                                            }
+                                            .onAppear() {
+                                                if !isRecording {
+                                                    currentDate = Date()
+                                                }
+                                                isRecording.toggle()
+                                            }
+                                            .padding(.leading, 65)
                                     }
-                                    .onAppear() {
-                                        if !isRecording {
-                                            currentDate = Date()
-                                        }
-                                        isRecording.toggle()
+                                    
+                                    Spacer()
+                                    Button {
+                                        isListening = false
+                                        showTranscript.toggle()
+                                        
+                                    } label: {
+                                        Rectangle()
+                                            .foregroundColor(Color.green)
+                                            .cornerRadius(20)
+                                            .frame(width: 70, height: 31)
+                                            .overlay {
+                                                Text("Done")
+                                                    .foregroundColor(Color.white)
+                                            }
                                     }
-                                    .padding(.leading, 65)
-                            }
-                            
-                            Spacer()
-                            Button {
-                                isListening = false
-                                showTranscript.toggle()
+                                    
+                                }
+                                .padding()
                                 
-                            } label: {
-                                Rectangle()
-                                    .foregroundColor(Color.green)
-                                    .cornerRadius(20)
-                                    .frame(width: 70, height: 31)
-                                    .overlay {
-                                        Text("Done")
-                                            .foregroundColor(Color.white)
+                                if isRecording {
+                                    soundView()
+                                }
+                                
+                                Button {
+                                    if !isRecording {
+                                        speechRecognizer.transcribe()
+                                    } else {
+                                        speechRecognizer.stopTranscribing()
                                     }
-                            }
-                            
-                        }
-                        .padding()
-                        
-                        if isRecording {
-                            soundView()
-                        }
-                        
-                        Button {
-                            if !isRecording {
-                                speechRecognizer.transcribe()
-                            } else {
-                                speechRecognizer.stopTranscribing()
-                            }
-                            isRecording.toggle()
-                            
-                            print("mulai record")
-                            
-                        } label: {
-                            ZStack {
-                                Circle()
-                                    .fill(Color("Primary"))
-                                    .frame(width: 110, height: 105)
-                                    .padding()
-                                Circle()
-                                    .fill(isRecording ? Color("purples") : Color("Primary"))
-                                    .frame(width: 100, height: 100)
-                                    .overlay(
+                                    isRecording.toggle()
+                                    
+                                    print("mulai record")
+                                    
+                                } label: {
+                                    ZStack {
                                         Circle()
-                                            .stroke(Color.white, lineWidth: 2)
-                                    )
-                                //                                Image("pause")
-                                (isRecording ? Image("pause") : Image("Voice"))
-                                    .resizable()
-                                    .frame(width: 30, height: 35)
-                                    .foregroundColor(Color.white)
-                                    .padding(20)
+                                            .fill(Color("Primary"))
+                                            .frame(width: 110, height: 105)
+                                            .padding()
+                                        Circle()
+                                            .fill(isRecording ? Color("purples") : Color("Primary"))
+                                            .frame(width: 100, height: 100)
+                                            .overlay(
+                                                Circle()
+                                                    .stroke(Color.white, lineWidth: 2)
+                                            )
+                                        //                                Image("pause")
+                                        (isRecording ? Image("pause") : Image("Voice"))
+                                            .resizable()
+                                            .frame(width: 30, height: 35)
+                                            .foregroundColor(Color.white)
+                                            .padding(20)
+                                    }
+                                }
+                                
+//                                .padding(.top, 50)
+                            }
+                                .transition(.opacity.combined(with: .move(edge: .bottom)))
+                            
+                        )
+                        .onAppear {
+                            if isListening {
+                                speechRecognizer.transcribe()
                             }
                         }
-                        
-                        .padding(.top, 50)
-                    }
-                    
-                )
-                .onAppear {
-                    if isListening {
-                        speechRecognizer.transcribe()
-                    }
                 }
+            }  .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
+                .ignoresSafeArea()
+                .animation(.easeInOut, value: isListening)
         }
         
         

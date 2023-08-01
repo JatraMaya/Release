@@ -19,11 +19,11 @@
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>NSCameraUsageDescription</key>
-	<string>tes camera</string>
+	<string>This lets you to scan the room to meet me.</string>
 	<key>NSMicrophoneUsageDescription</key>
-	<string>tes mic</string>
+	<string>Please allow the the microphone so I can hear your voice clearly.</string>
 	<key>NSSpeechRecognitionUsageDescription</key>
-	<string>tes speech</string>
+	<string>Please allow speech recognition so I can write down everything you say.</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Poppins-Bold.ttf</string>
@@ -33,6 +33,14 @@
 	</array>
 	<key>UILaunchScreen</key>
 	<string>LaunchScreen</string>
+	<key>UIRequiresFullScreen</key>
+	<true/>
+	<key>UIStatusBarStyle</key>
+	<string>UIStatusBarStyleLightContent</string>
+	<key>UISupportedInterfaceOrientations</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+	</array>
 	<key>UIUserInterfaceStyle</key>
 	<string>Light</string>
 </dict>
