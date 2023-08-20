@@ -11,5 +11,4 @@ struct MoodModel: Hashable {
     var image: String
     var text: String
     var color: String
-
 }

@@ -9,36 +9,40 @@ import SwiftUI
 
 struct OnBoardingView2: View {
     @Binding var value: Int
-    
-
     var body: some View {
-        ZStack{
+        ZStack {
             Color("Purple").ignoresSafeArea()
-            VStack{
+            VStack {
                 Spacer()
                 NavigationLink(destination: MyProfileVIew(), label: {
                     Text("Skip").font(.custom("Poppins-Medium", size: 16))
                         .foregroundColor(Color.white)
                 }).padding(.leading, 310)
                 Spacer()
-                Text("Track Your Anger").font(.custom("Poppins-Medium", size: 30)).fontWeight(.medium).foregroundColor(Color.white).padding(.bottom)
+                Text("Track Your Anger")
+                    .font(.custom("Poppins-Medium", size: 30)).fontWeight(.medium)
+                    .foregroundColor(Color.white)
+                    .padding(.bottom)
                 Text("Your daily journal, unlike no other").font(.custom("Poppins", size: 18))
                     .foregroundColor(Color.white)
                 Text("No need to type anything, just talk.").font(.custom("Poppins", size: 18))
                     .foregroundColor(Color.white)
-                Image("Books").resizable().frame(width: 350, height: 201).padding(.bottom, 90).padding(.top, 27)
-                    .padding(.top,55)
-                Button{
+                Image("Books").resizable().frame(width: 350, height: 201).padding(.bottom, 90)
+                    .padding(.top, 27)
+                    .padding(.top, 55)
+                Button {
                     withAnimation {
                         value += 1
                     }
-
                 }label: {
-                    Text("Next").font(.custom("Poppins-Medium", size: 17))
-                        .frame(width: 320, height: 55).background(.white).foregroundColor(Color("Primary")).cornerRadius(radius: 30, corners: .allCorners).shadow(color: .black, radius:3, x: 0, y: 3)
+                    Text("Next")
+                        .font(.custom("Poppins-Medium", size: 17))
+                        .frame(width: 320, height: 55)
+                        .background(.white).foregroundColor(Color("Primary"))
+                        .cornerRadius(radius: 30, corners: .allCorners)
+                        .shadow(color: .black, radius: 3, x: 0, y: 3)
                 }
-               
-                Group{
+                Group {
                     Spacer()
                     Spacer()
                     Spacer()

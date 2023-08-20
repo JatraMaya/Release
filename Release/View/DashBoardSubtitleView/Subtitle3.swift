@@ -9,14 +9,13 @@ import SwiftUI
 
 struct Subtitle3: View {
     var body: some View {
-        VStack{
+        VStack {
             Text("Don’t afraid.")
                 .font(.custom("Poppins-Medium", size: 18))
             Text("I won’t judge! I am here for you")
                 .font(.custom("Poppins-Medium", size: 18))
             Text("So, let’s vent it out, shall we?")
                 .font(.custom("Poppins-Medium", size: 18))
-
         }
     }
 }

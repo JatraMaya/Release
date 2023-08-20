@@ -9,27 +9,33 @@ import SwiftUI
 
 struct OnBoardingView3: View {
     @AppStorage("isOnboarding") var isOnboarding: Bool = false
-    
-
     var body: some View {
-        ZStack{
+        ZStack {
             Color("Purple").ignoresSafeArea()
-            VStack{
+            VStack {
                 Spacer()
-
-                Spacer()                
-                Text("Be True to Yourself").font(.custom("Poppins-Medium", size: 30)).fontWeight(.medium).foregroundColor(Color.white).padding(.bottom)
-                Text("A safe place for you,").font(.custom("Poppins", size: 18))
+                Spacer()
+                Text("Be True to Yourself")
+                    .font(.custom("Poppins-Medium", size: 30))
+                    .fontWeight(.medium)
                     .foregroundColor(Color.white)
-                Text("Let you have a piece of mind.").font(.custom("Poppins", size: 18))
+                    .padding(.bottom)
+                Text("A safe place for you,")
+                    .font(.custom("Poppins", size: 18))
+                    .foregroundColor(Color.white)
+                Text("Let you have a piece of mind.")
+                    .font(.custom("Poppins", size: 18))
                     .foregroundColor(Color.white)
                     .padding(.top, 20)
                 Image("Joy").resizable().frame(width: 254, height: 258).padding(.bottom, 72).padding(.top, 27)
                 NavigationLink(destination: MyProfileVIew(), label: {
                     Text("Get Started").font(.custom("Poppins-Medium", size: 17))
-                        .frame(width: 320, height: 55).background(.white).foregroundColor(Color("Primary")).cornerRadius(radius: 30, corners: .allCorners).shadow(color: .black, radius:3, x: 0, y: 3)
+                        .frame(width: 320, height: 55)
+                        .background(.white).foregroundColor(Color("Primary"))
+                        .cornerRadius(radius: 30, corners: .allCorners)
+                        .shadow(color: .black, radius: 3, x: 0, y: 3)
                 })
-                Group{
+                Group {
                     Spacer()
                     Spacer()
                     Spacer()

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct HomeView3: View {
     var body: some View {
-            VStack{
+            VStack {
                 Text("Don’t afraid.")
                     .font(.custom("Poppins-Medium", size: 18))
                     .padding(.top, 30)
@@ -18,8 +18,7 @@ struct HomeView3: View {
                 Image("doggo").resizable().frame(width: 187, height: 240)
                     .padding(.top, 50)
                 Text("So, let’s vent it out, shall we?")
-                    .font(.custom("Poppins-SemiBold", size:18))
-//                    .padding(.top, 61)
+                    .font(.custom("Poppins-SemiBold", size: 18))
             }
         }
 }

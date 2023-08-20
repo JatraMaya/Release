@@ -9,7 +9,7 @@ import SwiftUI
 
 struct HomeView2: View {
     var body: some View {
-            VStack{
+            VStack {
                 Text("You know, it’s okay to not feeling okay.")
                     .font(.custom("Poppins-Medium", size: 18))
                     Text("You can tell me whatever you want.")
@@ -21,7 +21,6 @@ struct HomeView2: View {
             }
         }
 }
-
 
 struct HomeView2_Previews: PreviewProvider {
     static var previews: some View {

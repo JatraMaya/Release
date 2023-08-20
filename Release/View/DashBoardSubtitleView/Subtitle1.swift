@@ -10,11 +10,11 @@ import SwiftUI
 struct Subtitle1: View {
     @AppStorage("username") var username: String = "Samsul"
     var body: some View {
-        VStack{
+        VStack {
             Text("Hi, I am Mora!")
                 .font(.custom("Poppins-SemiBold", size: 20))
                 .padding(.bottom, 10)
-            HStack{
+            HStack {
                 Text("How are you feeling today,")
                     .font(.custom("Poppins-Medium", size: 18))
                 Text(username)
@@ -23,8 +23,8 @@ struct Subtitle1: View {
                     .font(.custom("Poppins-Medium", size: 18))
                     .foregroundColor(Color("Primary"))
                 Text("?")
-                .font(.custom("Poppins-Medium", size: 18))                    }
-
+                .font(.custom("Poppins-Medium", size: 18))
+            }
         }
     }
 }

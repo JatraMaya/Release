@@ -10,7 +10,7 @@ import SwiftUI
 struct HomeView1: View {
     @AppStorage("username") var username = ""
     var body: some View {
-        VStack{
+        VStack {
             Text("Hi, I am Mora!")
                 .font(.custom("Poppins-SemiBold", size: 20))
             Text("How are you feeling today,\(username)?")

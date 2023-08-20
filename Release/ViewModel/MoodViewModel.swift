@@ -11,7 +11,7 @@ struct MoodViewModel: View {
     var mood: MoodModel = MoodModel(image: "😒", text: "Annoyed", color: "Green")
     var moodIsSelected: Bool = false
     var body: some View {
-        HStack{
+        HStack {
             Text(mood.image)
                 .frame(width: 125, height: 63, alignment: .center)
             Text(mood.text.capitalized)

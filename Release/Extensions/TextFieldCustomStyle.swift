@@ -12,12 +12,10 @@ struct TextFieldCustomStyle: TextFieldStyle {
         configuration
             .padding([.leading, .trailing], 20)
             .padding([.top, .bottom], 10)
-//            .background(.black).opacity(0.1)
-                .overlay(
-                        RoundedRectangle(cornerRadius: 20)
-                            .stroke(Color("Primary"), lineWidth: 2)
-                    )
-                .cornerRadius(20)
-        }
-
+            .overlay(
+                RoundedRectangle(cornerRadius: 20)
+                    .stroke(Color("Primary"), lineWidth: 2)
+            )
+            .cornerRadius(20)
+    }
 }
